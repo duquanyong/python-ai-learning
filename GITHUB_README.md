@@ -2,7 +2,7 @@
 
 ## 📊 Progress Overview
 - **Start Date**: April 27, 2026
-- **Current Day**: Day 1
+- **Current Day**: Day 3
 - **Phase**: Python Fundamentals
 - **Status**: 🚀 In Progress
 
@@ -32,8 +32,54 @@
 python day01_conversation_bot.py
 ```
 
-**Screenshot**:
-![Day 1 Screenshot](./screenshots/day01.png)
+---
+
+### ✅ Day 2: Todo List Manager
+**Date**: 2026-04-28  
+**Technologies**: Python, JSON, File I/O  
+**Files**: [`day02_todo_manager.py`](./day02_todo_manager.py)
+
+**What I Learned**:
+- JSON data format and serialization
+- File read/write operations with `with`
+- List comprehensions for filtering
+- Dictionary operations and CRUD patterns
+
+**Features**:
+- Add, view, complete, delete todos
+- Priority levels (high/medium/low)
+- Auto-save to JSON file
+- Statistics dashboard
+
+**Run It**:
+```bash
+python day02_todo_manager.py
+```
+
+---
+
+### ✅ Day 3: Weather API Tool
+**Date**: 2026-04-29  
+**Technologies**: Python, requests, API, JSON  
+**Files**: [`day03_weather_checker.py`](./day03_weather_checker.py)
+
+**What I Learned**:
+- HTTP GET requests with requests library
+- API key authentication
+- Nested JSON parsing
+- Network error handling (timeout, connection errors)
+- Demo mode design for offline usage
+
+**Features**:
+- Query real-time weather via OpenWeatherMap API
+- Demo mode with mock data (no API key needed)
+- Formatted weather output (temperature, humidity, wind, etc.)
+- Graceful error handling for network issues
+
+**Run It**:
+```bash
+python day03_weather_checker.py
+```
 
 ---
 
@@ -41,8 +87,6 @@ python day01_conversation_bot.py
 
 | Day | Project | Status |
 |-----|---------|--------|
-| Day 2 | Todo List Manager | 📋 Planned |
-| Day 3 | Weather API Tool | 📋 Planned |
 | Day 4 | Data Analysis with Pandas | 📋 Planned |
 | Day 5 | Web Scraper | 📋 Planned |
 | Day 6 | Library Management System | 📋 Planned |
@@ -54,7 +98,9 @@ python day01_conversation_bot.py
 
 ### Phase 1: Python Basics (Day 1-7) 🟢 Active
 - [x] Day 1: Conversation Bot
-- [ ] Day 2-7: Various Python Projects
+- [x] Day 2: Todo List Manager
+- [x] Day 3: Weather API Tool
+- [ ] Day 4-7: Various Python Projects
 
 ### Phase 2: LangChain & LLMs (Day 8-14) ⚪ Upcoming
 - OpenAI API Integration
@@ -81,41 +127,45 @@ python day01_conversation_bot.py
 - ✅ Classes and Objects
 - ✅ Functions
 - ✅ Lists and Dictionaries
-- ⏳ File Operations (Coming Day 2)
+- ✅ File Operations (JSON read/write)
+- ✅ API Integration (requests, HTTP)
 - ⏳ Error Handling (Coming Day 5)
+- ⏳ Data Analysis (Coming Day 4)
 
 ### Skills Developing
+- ✅ API Integration
+- 🔄 Data Analysis
 - 🔄 Prompt Engineering
 - 🔄 LangChain Framework
-- 🔄 API Integration
-- 🔄 Data Analysis
 
 ---
 
 ## 🚀 Next Steps
 
-**Tomorrow's Goal**: Build a Todo List Manager with file persistence
+**Tomorrow's Goal**: Data Analysis with Pandas - read CSV files and create visualizations
 
 **Skills to Practice**:
-- List comprehensions
-- Dictionary operations
-- File read/write
-- JSON format
+- pandas DataFrame operations
+- matplotlib chart creation
+- CSV data processing
+- Data statistics and analysis
 
 ---
 
 ## 📝 Reflections
 
-**Day 1 Thoughts**:
-> Today I built my first Python program! The conversation bot was a great introduction to classes and functions. I'm excited to continue learning and can't wait to connect real AI models tomorrow!
+**Day 3 Thoughts**:
+> Today I connected Python to the real world via APIs! The weather checker can fetch live data from OpenWeatherMap. I also learned how to design a demo mode so the program works even without an API key. Error handling for network issues was a key takeaway.
 
 **Challenges Faced**:
-- Understanding class initialization
-- Managing conversation history
+- Understanding nested JSON parsing
+- Handling various network errors gracefully
+- Designing a consistent output format for both demo and real modes
 
 **Breakthroughs**:
-- Successfully implemented interactive dialogue
-- Learned how to structure Python programs
+- Successfully called a real external API
+- Implemented robust error handling (timeout, connection, 404, 401)
+- Learned the importance of fallback/demo modes
 
 ---
 
