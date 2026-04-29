@@ -496,7 +496,7 @@ def _format_weather(self, data):
 
 ---
 
-**完整代码**: [`day03_weather_checker.py`](./day03_weather_checker.py)  
+**完整代码**: [`day03_weather_checker.py`](https://github.com/duquanyong/python-ai-learning/blob/main/day03_weather_checker.py)  
 **API文档**: https://openweathermap.org/api
 
 ---
