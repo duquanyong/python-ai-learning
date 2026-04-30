@@ -517,7 +517,7 @@ for p in soup.find_all('p', class_='content'):
 
 ---
 
-**完整代码**: [`day05_web_scraper.py`](./day05_web_scraper.py)  
+**完整代码**: [`day05_web_scraper.py`](https://github.com/duquanyong/python-ai-learning/blob/main/day05_web_scraper.py)  
 **日志文件**: `logs/scraper_YYYYMMDD.log`
 
 ---
