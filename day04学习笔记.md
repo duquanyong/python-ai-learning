@@ -442,7 +442,7 @@ df.groupby('产品')['销售额'].sum()
 
 ---
 
-**完整代码**: [`day04_data_analyzer.py`](./day04_data_analyzer.py)  
+**完整代码**: [`day04_data_analyzer.py`](https://github.com/duquanyong/python-ai-learning/blob/main/day04_data_analyzer.py)  
 **示例数据**: `sample_data.csv`（运行后自动生成）
 
 ---
