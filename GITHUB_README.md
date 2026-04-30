@@ -2,7 +2,7 @@
 
 ## 📊 Progress Overview
 - **Start Date**: April 27, 2026
-- **Current Day**: Day 4
+- **Current Day**: Day 5
 - **Phase**: Python Fundamentals
 - **Status**: 🚀 In Progress
 
@@ -109,11 +109,36 @@ python day04_data_analyzer.py
 
 ---
 
+### ✅ Day 5: Web Scraper
+**Date**: 2026-05-01  
+**Technologies**: Python, requests, BeautifulSoup, logging  
+**Files**: [`day05_web_scraper.py`](./day05_web_scraper.py)
+
+**What I Learned**:
+- try-except-else-finally complete error handling
+- Custom exception classes
+- logging module configuration and usage
+- Retry mechanism with exponential backoff
+- BeautifulSoup HTML parsing
+
+**Features**:
+- Fetch web pages with retry logic (3 attempts)
+- Parse HTML to extract title, paragraphs, links, images
+- Custom exceptions for network and parse errors
+- Comprehensive logging to file and console
+- Demo mode for offline testing
+
+**Run It**:
+```bash
+python day05_web_scraper.py
+```
+
+---
+
 ### 📅 Upcoming Days
 
 | Day | Project | Status |
 |-----|---------|--------|
-| Day 5 | Web Scraper | 📋 Planned |
 | Day 6 | Library Management System | 📋 Planned |
 | Day 7 | Finance Tracker | 📋 Planned |
 
@@ -126,7 +151,8 @@ python day04_data_analyzer.py
 - [x] Day 2: Todo List Manager
 - [x] Day 3: Weather API Tool
 - [x] Day 4: Data Analyzer
-- [ ] Day 5-7: Various Python Projects
+- [x] Day 5: Web Scraper
+- [ ] Day 6-7: Various Python Projects
 
 ### Phase 2: LangChain & LLMs (Day 8-14) ⚪ Upcoming
 - OpenAI API Integration
@@ -156,7 +182,8 @@ python day04_data_analyzer.py
 - ✅ File Operations (JSON read/write)
 - ✅ API Integration (requests, HTTP)
 - ✅ Data Analysis (CSV processing, statistics)
-- ⏳ Error Handling (Coming Day 5)
+- ✅ Error Handling (try-except, logging, retry)
+- ⏳ OOP Advanced (Coming Day 6)
 
 ### Skills Developing
 - ✅ API Integration
@@ -168,30 +195,30 @@ python day04_data_analyzer.py
 
 ## 🚀 Next Steps
 
-**Tomorrow's Goal**: Error Handling & Logging - build a robust web scraper
+**Tomorrow's Goal**: OOP Advanced - build a Library Management System
 
 **Skills to Practice**:
-- try-except-finally structure
-- Custom exception classes
-- logging module
-- Robust web scraping
+- Class inheritance and polymorphism
+- Complex class design
+- Data persistence with JSON
+- Complete CRUD operations
 
 ---
 
 ## 📝 Reflections
 
-**Day 4 Thoughts**:
-> Today I learned to analyze data with pure Python! The data analyzer can read CSV files, calculate statistics, and generate reports. I was surprised that Python's built-in csv module is so powerful. The key insight is: data analysis is just reading → converting types → calculating → formatting output.
+**Day 5 Thoughts**:
+> Today I learned error handling and logging, which are key to writing robust programs. I used to only consider the happy path, but now I know how to handle network timeouts, connection failures, and server errors gracefully. The retry mechanism with exponential backoff was particularly interesting.
 
 **Challenges Faced**:
-- Understanding DictReader vs regular reader
-- Remembering to convert string data to numbers before calculation
-- Designing a clear report format with ASCII charts
+- Understanding when to use custom exceptions vs built-in ones
+- Designing a retry mechanism that doesn't overwhelm the server
+- Configuring logging to output to both file and console
 
 **Breakthroughs**:
-- Successfully analyzed real tabular data
-- Learned to use Counter for frequency statistics
-- Mastered string formatting for beautiful reports
+- Successfully built a web scraper with comprehensive error handling
+- Implemented automatic retry with exponential backoff
+- Learned to use logging instead of print for production code
 
 ---
 

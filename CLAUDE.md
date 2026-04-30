@@ -8,7 +8,7 @@ This is a personal Python & AI learning journey repo (30-day curriculum). Each d
 
 - **Language**: Python 3.12
 - **Learning start date**: April 27, 2026
-- **Current progress**: Day 4 (Phase 1: Python Basics)
+- **Current progress**: Day 5 (Phase 1: Python Basics)
 
 ## Running Code
 
@@ -25,13 +25,13 @@ python day01_conversation_bot.py
 python day02_todo_manager.py
 python day03_weather_checker.py
 python day04_data_analyzer.py
+python day05_web_scraper.py
 ```
 
 ### Install Dependencies
 ```bash
-# Already installed: requests, pandas, matplotlib
-# Phase 1 upcoming
-pip install beautifulsoup4  # Day 5 web scraping
+# Already installed: requests, pandas, matplotlib, beautifulsoup4
+# Phase 1 complete
 
 # Phase 2-3 (LangChain & AI)
 pip install langchain langchain-openai openai
