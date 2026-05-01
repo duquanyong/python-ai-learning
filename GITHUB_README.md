@@ -2,7 +2,7 @@
 
 ## 📊 Progress Overview
 - **Start Date**: April 27, 2026
-- **Current Day**: Day 5
+- **Current Day**: Day 6
 - **Phase**: Python Fundamentals
 - **Status**: 🚀 In Progress
 
@@ -135,11 +135,38 @@ python day05_web_scraper.py
 
 ---
 
+### ✅ Day 6: Library Management System
+**Date**: 2026-05-02  
+**Technologies**: Python, OOP (Inheritance, Class Methods), JSON  
+**Files**: [`day06_library_system.py`](./day06_library_system.py)
+
+**What I Learned**:
+- Class inheritance with `super()`
+- `@classmethod` for factory methods
+- Object serialization with `to_dict()` / `from_dict()`
+- Complex system design with multiple classes
+- `__str__` magic method for readable output
+
+**Features**:
+- Book management (add, remove, list, search)
+- Reader management with borrow limits
+- Borrow/return system with due dates
+- Borrow records tracking
+- Statistics dashboard (books, categories, borrowed copies)
+- Auto-save to JSON file
+- Inheritance design: Person → Reader / Librarian
+
+**Run It**:
+```bash
+python day06_library_system.py
+```
+
+---
+
 ### 📅 Upcoming Days
 
 | Day | Project | Status |
 |-----|---------|--------|
-| Day 6 | Library Management System | 📋 Planned |
 | Day 7 | Finance Tracker | 📋 Planned |
 
 ---
@@ -152,7 +179,8 @@ python day05_web_scraper.py
 - [x] Day 3: Weather API Tool
 - [x] Day 4: Data Analyzer
 - [x] Day 5: Web Scraper
-- [ ] Day 6-7: Various Python Projects
+- [x] Day 6: Library Management System
+- [ ] Day 7: Finance Tracker
 
 ### Phase 2: LangChain & LLMs (Day 8-14) ⚪ Upcoming
 - OpenAI API Integration
@@ -183,7 +211,8 @@ python day05_web_scraper.py
 - ✅ API Integration (requests, HTTP)
 - ✅ Data Analysis (CSV processing, statistics)
 - ✅ Error Handling (try-except, logging, retry)
-- ⏳ OOP Advanced (Coming Day 6)
+- ✅ OOP Advanced (inheritance, class methods, serialization)
+- ⏳ Comprehensive Project (Coming Day 7)
 
 ### Skills Developing
 - ✅ API Integration
@@ -195,30 +224,30 @@ python day05_web_scraper.py
 
 ## 🚀 Next Steps
 
-**Tomorrow's Goal**: OOP Advanced - build a Library Management System
+**Tomorrow's Goal**: Comprehensive Project - Personal Finance Tracker
 
 **Skills to Practice**:
-- Class inheritance and polymorphism
-- Complex class design
-- Data persistence with JSON
-- Complete CRUD operations
+- Apply all Phase 1 knowledge
+- Complex data modeling
+- Income/expense categorization
+- Monthly/yearly reports
 
 ---
 
 ## 📝 Reflections
 
-**Day 5 Thoughts**:
-> Today I learned error handling and logging, which are key to writing robust programs. I used to only consider the happy path, but now I know how to handle network timeouts, connection failures, and server errors gracefully. The retry mechanism with exponential backoff was particularly interesting.
+**Day 6 Thoughts**:
+> Today I learned OOP advanced concepts like inheritance and class methods. The library management system is the most complex project so far, with 5 classes working together. I now understand how inheritance reduces code duplication - Reader and Librarian both inherit from Person, so I don't need to repeat name and id_card in each class.
 
 **Challenges Faced**:
-- Understanding when to use custom exceptions vs built-in ones
-- Designing a retry mechanism that doesn't overwhelm the server
-- Configuring logging to output to both file and console
+- Designing the class hierarchy (what goes in parent vs child classes)
+- Understanding when to use @classmethod vs instance methods
+- Implementing to_dict/from_dict for JSON serialization
 
 **Breakthroughs**:
-- Successfully built a web scraper with comprehensive error handling
-- Implemented automatic retry with exponential backoff
-- Learned to use logging instead of print for production code
+- Successfully designed a multi-class system with inheritance
+- Implemented complete serialization/deserialization
+- Understood the power of super() for code reuse
 
 ---
 

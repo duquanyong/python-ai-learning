@@ -1,0 +1,107 @@
+{
+  "books": [
+    {
+      "book_id": "B001",
+      "title": "Python编程：从入门到实践",
+      "author": "Eric Matthes",
+      "category": "计算机",
+      "total_copies": 3,
+      "available": 3,
+      "borrow_records": [
+        {
+          "reader_id": "R001",
+          "borrow_date": "2026-05-01",
+          "due_date": "2026-05-31",
+          "return_date": "2026-05-01"
+        }
+      ]
+    },
+    {
+      "book_id": "B002",
+      "title": "流畅的Python",
+      "author": "Luciano Ramalho",
+      "category": "计算机",
+      "total_copies": 2,
+      "available": 2,
+      "borrow_records": []
+    },
+    {
+      "book_id": "B003",
+      "title": "深入理解计算机系统",
+      "author": "Randal E. Bryant",
+      "category": "计算机",
+      "total_copies": 2,
+      "available": 2,
+      "borrow_records": []
+    },
+    {
+      "book_id": "B004",
+      "title": "三体",
+      "author": "刘慈欣",
+      "category": "科幻小说",
+      "total_copies": 5,
+      "available": 5,
+      "borrow_records": []
+    },
+    {
+      "book_id": "B005",
+      "title": "流浪地球",
+      "author": "刘慈欣",
+      "category": "科幻小说",
+      "total_copies": 3,
+      "available": 3,
+      "borrow_records": []
+    },
+    {
+      "book_id": "B006",
+      "title": "活着",
+      "author": "余华",
+      "category": "文学",
+      "total_copies": 4,
+      "available": 4,
+      "borrow_records": []
+    },
+    {
+      "book_id": "B007",
+      "title": "百年孤独",
+      "author": "加西亚·马尔克斯",
+      "category": "文学",
+      "total_copies": 2,
+      "available": 2,
+      "borrow_records": []
+    },
+    {
+      "book_id": "B008",
+      "title": "人类简史",
+      "author": "尤瓦尔·赫拉利",
+      "category": "历史",
+      "total_copies": 3,
+      "available": 3,
+      "borrow_records": []
+    }
+  ],
+  "readers": [
+    {
+      "name": "张三",
+      "id_card": "R001",
+      "type": "Reader",
+      "borrowed_books": [],
+      "max_books": 5
+    },
+    {
+      "name": "李四",
+      "id_card": "R002",
+      "type": "Reader",
+      "borrowed_books": [],
+      "max_books": 5
+    },
+    {
+      "name": "王五",
+      "id_card": "R003",
+      "type": "Reader",
+      "borrowed_books": [],
+      "max_books": 5
+    }
+  ],
+  "librarians": []
+}
