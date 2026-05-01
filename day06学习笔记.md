@@ -505,7 +505,7 @@ print(p)  # Point(3, 4)
 
 ---
 
-**完整代码**: [`day06_library_system.py`](./day06_library_system.py)  
+**完整代码**: [`day06_library_system.py`](https://github.com/duquanyong/python-ai-learning/blob/main/day06_library_system.py)  
 **数据文件**: `library_data.json`（运行后自动生成）
 
 ---
