@@ -567,7 +567,7 @@ for month, values in sorted(monthly.items()):
 
 ---
 
-**完整代码**: [`day07_finance_tracker.py`](./day07_finance_tracker.py)  
+**完整代码**: [`day07_finance_tracker.py`](https://github.com/duquanyong/python-ai-learning/blob/main/day07_finance_tracker.py)  
 **数据文件**: `finance_data.json`（运行后自动生成）
 
 ---
