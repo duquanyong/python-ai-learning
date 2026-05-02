@@ -1,0 +1,150 @@
+{
+  "transactions": [
+    {
+      "id": "20260501212405850287",
+      "amount": 8000.0,
+      "category": "工资",
+      "description": "3月工资",
+      "date": "2026-03-01",
+      "type": "income"
+    },
+    {
+      "id": "20260501212405853150",
+      "amount": 1500.0,
+      "category": "奖金",
+      "description": "项目奖金",
+      "date": "2026-03-05",
+      "type": "income"
+    },
+    {
+      "id": "20260501212405853150",
+      "amount": 200.0,
+      "category": "投资",
+      "description": "股票收益",
+      "date": "2026-03-10",
+      "type": "income"
+    },
+    {
+      "id": "20260501212405854545",
+      "amount": 1200.0,
+      "category": "住房",
+      "description": "房租",
+      "date": "2026-03-01",
+      "type": "expense"
+    },
+    {
+      "id": "20260501212405855553",
+      "amount": 800.0,
+      "category": "餐饮",
+      "description": "日常餐饮",
+      "date": "2026-03-02",
+      "type": "expense"
+    },
+    {
+      "id": "20260501212405855553",
+      "amount": 300.0,
+      "category": "交通",
+      "description": "地铁+打车",
+      "date": "2026-03-03",
+      "type": "expense"
+    },
+    {
+      "id": "20260501212405856718",
+      "amount": 500.0,
+      "category": "购物",
+      "description": "衣服",
+      "date": "2026-03-05",
+      "type": "expense"
+    },
+    {
+      "id": "20260501212405857728",
+      "amount": 200.0,
+      "category": "娱乐",
+      "description": "电影",
+      "date": "2026-03-08",
+      "type": "expense"
+    },
+    {
+      "id": "20260501212405858728",
+      "amount": 100.0,
+      "category": "医疗",
+      "description": "感冒药",
+      "date": "2026-03-12",
+      "type": "expense"
+    },
+    {
+      "id": "20260501212405860023",
+      "amount": 8000.0,
+      "category": "工资",
+      "description": "4月工资",
+      "date": "2026-04-01",
+      "type": "income"
+    },
+    {
+      "id": "20260501212405861031",
+      "amount": 1200.0,
+      "category": "住房",
+      "description": "房租",
+      "date": "2026-04-01",
+      "type": "expense"
+    },
+    {
+      "id": "20260501212405861031",
+      "amount": 900.0,
+      "category": "餐饮",
+      "description": "日常餐饮",
+      "date": "2026-04-02",
+      "type": "expense"
+    },
+    {
+      "id": "20260501212405862984",
+      "amount": 350.0,
+      "category": "交通",
+      "description": "地铁+打车",
+      "date": "2026-04-03",
+      "type": "expense"
+    },
+    {
+      "id": "20260501212405863992",
+      "amount": 800.0,
+      "category": "购物",
+      "description": "电子产品",
+      "date": "2026-04-05",
+      "type": "expense"
+    },
+    {
+      "id": "20260501212405865442",
+      "amount": 300.0,
+      "category": "娱乐",
+      "description": "KTV",
+      "date": "2026-04-08",
+      "type": "expense"
+    }
+  ],
+  "budgets": {
+    "餐饮": {
+      "category": "餐饮",
+      "limit": 1000.0,
+      "period": "monthly",
+      "spent": 0
+    },
+    "交通": {
+      "category": "交通",
+      "limit": 500.0,
+      "period": "monthly",
+      "spent": 0
+    },
+    "购物": {
+      "category": "购物",
+      "limit": 1000.0,
+      "period": "monthly",
+      "spent": 0
+    },
+    "娱乐": {
+      "category": "娱乐",
+      "limit": 500.0,
+      "period": "monthly",
+      "spent": 0
+    }
+  }
+}

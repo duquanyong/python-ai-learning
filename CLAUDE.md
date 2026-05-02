@@ -8,7 +8,7 @@ This is a personal Python & AI learning journey repo (30-day curriculum). Each d
 
 - **Language**: Python 3.12
 - **Learning start date**: April 27, 2026
-- **Current progress**: Day 6 (Phase 1: Python Basics)
+- **Current progress**: Day 7 (Phase 2: LangChain & LLMs)
 
 ## Running Code
 
@@ -27,6 +27,7 @@ python day03_weather_checker.py
 python day04_data_analyzer.py
 python day05_web_scraper.py
 python day06_library_system.py
+python day07_finance_tracker.py
 ```
 
 ### Install Dependencies
@@ -35,7 +36,7 @@ python day06_library_system.py
 # Phase 1 complete (Day 1-7)
 
 # Phase 2-3 (LangChain & AI)
-pip install langchain langchain-openai openai
+pip install langchain langchain-openai openai python-dotenv
 
 # Phase 3-4 (Web apps)
 pip install fastapi streamlit python-dotenv
@@ -54,7 +55,8 @@ Daily projects follow the naming convention `dayNN_<descriptive_name>.py` (e.g.,
 - Day 2+ projects use JSON files for local data storage (e.g., `todos.json`). These are committed to git as sample data.
 
 ### API Keys
-- Day 3 (weather) uses OpenWeatherMap API. The script supports a demo mode (no API key required) and accepts API keys via interactive input at runtime. Do not hardcode API keys in source files.
+- Day 3 (weather) uses OpenWeatherMap API. The script supports a demo mode (no API key required) and accepts API keys via interactive input at runtime.
+- Day 8+ (LangChain/OpenAI) uses OpenAI API. These scripts require an API key via environment variable (`OPENAI_API_KEY`) or interactive input. Do not hardcode API keys in source files.
 
 ### Learning Notes
 Each day has an accompanying `dayNN学习笔记.md` file with study notes in Chinese. When adding new days, follow this pattern and update `GITHUB_README.md` progress tracking.
