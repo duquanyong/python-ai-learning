@@ -1,6 +1,6 @@
 """
-Day 8 Project: 第一个AI应用 - OpenAI智能对话
-功能：连接OpenAI API，实现智能对话、文本生成、翻译等功能
+Day 8 Project: 第一个AI应用 - 阿里百炼智能对话
+功能：连接阿里百炼 API，实现智能对话、文本生成、翻译等功能
 作者：duquanyong
 日期：2026-05-04
 """
@@ -16,17 +16,21 @@ load_dotenv()
 
 
 class AIAssistant:
-    """AI助手 - 基于OpenAI API"""
+    """AI助手 - 基于阿里百炼 API"""
 
     def __init__(self, api_key=None):
-        self.api_key = api_key or os.getenv("OPENAI_API_KEY")
+        self.api_key = api_key or os.getenv("DASHSCOPE_API_KEY")
         self.client = None
         self.conversation_history = []
-        self.model = "gpt-4o-mini"  # 使用gpt-4o-mini模型（速度快、价格低）
+        # 阿里百炼模型: https://help.aliyun.com/zh/model-studio/getting-started/models
+        self.model = "qwen-turbo"  # 通义千问Turbo（速度快、价格低）
 
         if self.api_key:
-            self.client = OpenAI(api_key=self.api_key)
-            print("✅ AI助手初始化成功")
+            self.client = OpenAI(
+                api_key=self.api_key,
+                base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
+            )
+            print("✅ AI助手初始化成功（阿里百炼）")
         else:
             print("⚠️ 未设置API密钥，将进入演示模式")
 
@@ -104,7 +108,7 @@ class AIAssistant:
             if key in message:
                 return value
 
-        return f"【演示模式】你说了：{message}\n\n要体验真实的AI功能，请设置OPENAI_API_KEY环境变量或在初始化时传入API密钥。"
+        return f"【演示模式】你说了：{message}\n\n要体验真实的AI功能，请设置DASHSCOPE_API_KEY环境变量或在初始化时传入API密钥。"
 
 
 def show_menu():
@@ -124,18 +128,18 @@ def show_menu():
 def main():
     """主程序 - OpenAI AI应用"""
     print("=" * 60)
-    print("🤖 第一个AI应用 - Day 8 学习成果")
+    print("🤖 第一个AI应用（阿里百炼版） - Day 8 学习成果")
     print("=" * 60)
 
     # 检查API密钥
-    api_key = os.getenv("OPENAI_API_KEY")
+    api_key = os.getenv("DASHSCOPE_API_KEY")
     if not api_key:
         print("\n📝 提示：")
-        print("1. 设置环境变量 OPENAI_API_KEY 以使用真实AI")
+        print("1. 设置环境变量 DASHSCOPE_API_KEY 以使用真实AI")
         print("2. 或在运行时输入API密钥")
         print("3. 没有密钥将进入演示模式")
 
-        key = input("\n请输入OpenAI API密钥（或回车使用演示模式）: ").strip()
+        key = input("\n请输入阿里百炼 API 密钥（或回车使用演示模式）: ").strip()
         if key:
             api_key = key
 
