@@ -2,9 +2,9 @@
 
 ## 📊 Progress Overview
 - **Start Date**: April 27, 2026
-- **Current Day**: Day 8
+- **Current Day**: Day 9
 - **Phase**: Phase 2 - LangChain & LLMs
-- **Status**: 🟢 Phase 2 Active - OpenAI API Integration Complete
+- **Status**: 🟢 Phase 2 Active - Prompt Engineering Complete
 
 ---
 
@@ -193,27 +193,23 @@ python day07_finance_tracker.py
 
 ---
 
-### ✅ Day 8: OpenAI Chat Assistant
+### ✅ Day 8: AI Chat Assistant (DashScope)
 **Date**: 2026-05-04  
-**Technologies**: Python, OpenAI API, python-dotenv  
+**Technologies**: Python, DashScope API, python-dotenv  
 **Files**: [`day08_openai_chat.py`](./day08_openai_chat.py)
 
 **What I Learned**:
-- OpenAI API basics and authentication
-- Chat completions API with message roles (system/user/assistant)
+- DashScope (Alibaba Bailian) API basics
+- OpenAI-compatible API format
+- Chat completions with message roles
 - Conversation history management
-- Environment variable management with python-dotenv
-- System prompt design for different tasks
-- Demo mode for offline testing
+- Environment variable management
+- Demo mode design
 
 **Features**:
 - Free-form conversation with context memory
-- Translation to any language
-- Text summarization with length control
-- Article writing with style selection
-- Code explanation for Python code
-- Conversation history tracking and clearing
-- Demo mode when no API key is available
+- Translation, summarization, article writing, code explanation
+- Demo mode when no API key
 
 **Run It**:
 ```bash
@@ -222,11 +218,42 @@ python day08_openai_chat.py
 
 ---
 
+### ✅ Day 9: Prompt Engineering
+**Date**: 2026-05-05  
+**Technologies**: Python, Prompt Engineering Techniques  
+**Files**: [`day09_prompt_engineering.py`](./day09_prompt_engineering.py)
+
+**What I Learned**:
+- Role prompting for specialized responses
+- Few-shot learning with examples
+- Chain-of-thought reasoning
+- Structured output (JSON/Markdown)
+- Tree of thoughts for multi-solution exploration
+- Self-consistency through multiple sampling
+- Reflection and self-improvement
+- Prompt templates and comparison
+
+**Features**:
+- 8 prompt engineering techniques in one tool
+- Side-by-side prompt comparison
+- Few-shot classification and extraction
+- Structured JSON/Markdown generation
+- Multi-solution analysis with Tree of Thoughts
+- Self-consistency verification
+- Reflection-based improvement
+
+**Run It**:
+```bash
+python day09_prompt_engineering.py
+```
+
+---
+
 ### 📅 Upcoming Days
 
 | Day | Project | Status |
 |-----|---------|--------|
-| Day 9 | Prompt Engineering | 📋 Planned |
+| Day 10 | RAG Systems | 📋 Planned |
 
 ---
 
@@ -242,16 +269,10 @@ python day08_openai_chat.py
 - [x] Day 7: Finance Tracker
 
 ### Phase 2: LangChain & LLMs (Day 8-14) 🟢 Active
-- [x] Day 8: OpenAI API Integration
-- [ ] Day 9: Prompt Engineering
+- [x] Day 8: DashScope API Integration
+- [x] Day 9: Prompt Engineering
 - [ ] Day 10: RAG Systems
 - [ ] Day 11-14: AI Agents
-
-### Phase 3: Advanced Agents (Day 15-21) ⚪ Upcoming
-- ReAct Pattern
-- Multi-Agent Systems
-- Web Automation
-- Database Queries
 
 ### Phase 3: Advanced Agents (Day 15-21) ⚪ Upcoming
 - ReAct Pattern
@@ -283,25 +304,43 @@ python day08_openai_chat.py
 - ✅ API Integration
 - ✅ Data Analysis
 - ✅ Python Fundamentals (Complete)
-- ✅ OpenAI API Integration
-- 🔄 Prompt Engineering
+- ✅ DashScope API Integration
+- ✅ Prompt Engineering
+- 🔄 RAG Systems
 - 🔄 LangChain Framework
 
 ---
 
 ## 🚀 Next Steps
 
-**Tomorrow's Goal**: Prompt Engineering - Learn to write effective prompts
+**Tomorrow's Goal**: RAG Systems - Build document-based Q&A
 
 **Skills to Practice**:
-- Few-shot learning
-- Chain-of-thought prompting
-- Structured output
-- Prompt optimization
+- Vector databases
+- Document retrieval
+- Embedding vectors
+- Knowledge base Q&A
 
 ---
 
 ## 📝 Reflections
+
+**Day 9 Thoughts**:
+> Today I learned that talking to AI is itself a skill! Prompt Engineering completely changed how I think about AI interactions. The biggest insight: AI isn't mind-reading - the clearer your prompt, the better the output. I practiced 8 different techniques and was amazed how much difference a well-crafted prompt makes. Few-shot learning is like teaching by example, and Chain-of-Thought makes the AI actually "think" step by step instead of jumping to conclusions.
+
+**Challenges Faced**:
+- Designing effective few-shot examples
+- Balancing temperature for different tasks
+- Getting consistent structured JSON output
+- Understanding when to use each technique
+
+**Breakthroughs**:
+- Mastered 8 core prompt engineering techniques
+- Built a comprehensive prompt testing tool
+- Understood the power of role prompting
+- Learned to design prompts for structured output
+
+---
 
 **Day 8 Thoughts**:
 > Today I built my first real AI application using OpenAI API! It's amazing how simple the API is - just `client.chat.completions.create()` with the right messages. The key insight is that AI has no memory, so I need to manually maintain and send conversation history. I also learned about System Prompts which act like the AI's "personality setting" - different prompts make the AI behave completely differently (translator vs writer vs code expert).
@@ -328,7 +367,8 @@ python day08_openai_chat.py
 5. Web Scraper - Error handling and logging
 6. Library System - OOP inheritance
 7. Finance Tracker - Comprehensive project
-8. AI Chat Assistant - OpenAI API integration
+8. AI Chat Assistant - DashScope API integration
+9. Prompt Engineering - 8 prompt techniques
 
 **Skills Mastered**:
 - Python syntax and data structures
