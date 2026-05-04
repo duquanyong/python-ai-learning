@@ -2,9 +2,9 @@
 
 ## 📊 Progress Overview
 - **Start Date**: April 27, 2026
-- **Current Day**: Day 9
+- **Current Day**: Day 10
 - **Phase**: Phase 2 - LangChain & LLMs
-- **Status**: 🟢 Phase 2 Active - Prompt Engineering Complete
+- **Status**: 🟢 Phase 2 Active - RAG Systems Complete
 
 ---
 
@@ -249,11 +249,38 @@ python day09_prompt_engineering.py
 
 ---
 
+### ✅ Day 10: RAG System
+**Date**: 2026-05-06
+**Technologies**: Python, Vector Search, Embeddings
+**Files**: [`day10_rag_system.py`](./day10_rag_system.py)
+
+**What I Learned**:
+- RAG architecture and workflow
+- Text embedding with Embedding API
+- Cosine similarity for vector search
+- Text chunking strategies
+- Document retrieval and context injection
+- Building knowledge-base Q&A
+
+**Features**:
+- Add documents to knowledge base with auto-chunking
+- Vector-based similarity search
+- Question answering based on retrieved context
+- JSON-based vector storage
+- Demo mode with hash-based embeddings
+
+**Run It**:
+```bash
+python day10_rag_system.py
+```
+
+---
+
 ### 📅 Upcoming Days
 
 | Day | Project | Status |
 |-----|---------|--------|
-| Day 10 | RAG Systems | 📋 Planned |
+| Day 11 | AI Agent Basics | 📋 Planned |
 
 ---
 
@@ -271,7 +298,7 @@ python day09_prompt_engineering.py
 ### Phase 2: LangChain & LLMs (Day 8-14) 🟢 Active
 - [x] Day 8: DashScope API Integration
 - [x] Day 9: Prompt Engineering
-- [ ] Day 10: RAG Systems
+- [x] Day 10: RAG Systems
 - [ ] Day 11-14: AI Agents
 
 ### Phase 3: Advanced Agents (Day 15-21) ⚪ Upcoming
@@ -306,24 +333,42 @@ python day09_prompt_engineering.py
 - ✅ Python Fundamentals (Complete)
 - ✅ DashScope API Integration
 - ✅ Prompt Engineering
-- 🔄 RAG Systems
+- ✅ RAG Systems
+- 🔄 AI Agents
 - 🔄 LangChain Framework
 
 ---
 
 ## 🚀 Next Steps
 
-**Tomorrow's Goal**: RAG Systems - Build document-based Q&A
+**Tomorrow's Goal**: AI Agent Basics - Build tool-using agents
 
 **Skills to Practice**:
-- Vector databases
-- Document retrieval
-- Embedding vectors
-- Knowledge base Q&A
+- ReAct pattern
+- Tool use
+- Agent loop
+- Function calling
 
 ---
 
 ## 📝 Reflections
+
+**Day 10 Thoughts**:
+> Today I built a RAG system - the key technology that makes AI truly useful with private knowledge! The biggest insight: pure LLM is like a smart but forgetful person, while RAG gives them a library and search system. I implemented document chunking, embedding-based retrieval, and context-aware answering. The cosine similarity search is elegant - it finds semantically related content even without keyword matching.
+
+**Challenges Faced**:
+- Understanding embedding dimensions and model compatibility
+- Choosing the right chunk size for different document types
+- Designing prompts that force AI to stick to provided context
+- Handling cases where no relevant documents are found
+
+**Breakthroughs**:
+- Built a complete RAG pipeline from scratch
+- Understood vector similarity search intuitively
+- Learned to prevent AI hallucinations with RAG
+- Implemented fallback demo mode with hash embeddings
+
+---
 
 **Day 9 Thoughts**:
 > Today I learned that talking to AI is itself a skill! Prompt Engineering completely changed how I think about AI interactions. The biggest insight: AI isn't mind-reading - the clearer your prompt, the better the output. I practiced 8 different techniques and was amazed how much difference a well-crafted prompt makes. Few-shot learning is like teaching by example, and Chain-of-Thought makes the AI actually "think" step by step instead of jumping to conclusions.
@@ -369,6 +414,7 @@ python day09_prompt_engineering.py
 7. Finance Tracker - Comprehensive project
 8. AI Chat Assistant - DashScope API integration
 9. Prompt Engineering - 8 prompt techniques
+10. RAG System - Document-based Q&A
 
 **Skills Mastered**:
 - Python syntax and data structures
