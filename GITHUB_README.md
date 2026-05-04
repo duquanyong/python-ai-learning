@@ -2,9 +2,9 @@
 
 ## 📊 Progress Overview
 - **Start Date**: April 27, 2026
-- **Current Day**: Day 10
+- **Current Day**: Day 11
 - **Phase**: Phase 2 - LangChain & LLMs
-- **Status**: 🟢 Phase 2 Active - RAG Systems Complete
+- **Status**: 🟢 Phase 2 Active - LangChain Basics Complete
 
 ---
 
@@ -276,11 +276,41 @@ python day10_rag_system.py
 
 ---
 
+### ✅ Day 11: LangChain Basics
+**Date**: 2026-05-07
+**Technologies**: Python, LangChain, Chains, Prompts
+**Files**: [`day11_langchain_basics.py`](./day11_langchain_basics.py)
+
+**What I Learned**:
+- LangChain framework core concepts
+- PromptTemplate and ChatPromptTemplate
+- Chain composition with | operator
+- Output parsers (StrOutputParser, JsonOutputParser)
+- Runnable components (Passthrough, Lambda)
+- Multi-step and conditional chains
+- Integration with DashScope via ChatOpenAI
+
+**Features**:
+- 10 interactive LangChain demonstrations
+- Prompt template variable substitution
+- Conversation history management
+- JSON structured output
+- Custom function integration
+- Conditional routing chains
+- Complete customer service example
+
+**Run It**:
+```bash
+python day11_langchain_basics.py
+```
+
+---
+
 ### 📅 Upcoming Days
 
 | Day | Project | Status |
 |-----|---------|--------|
-| Day 11 | AI Agent Basics | 📋 Planned |
+| Day 12 | AI Agent Basics | 📋 Planned |
 
 ---
 
@@ -299,7 +329,8 @@ python day10_rag_system.py
 - [x] Day 8: DashScope API Integration
 - [x] Day 9: Prompt Engineering
 - [x] Day 10: RAG Systems
-- [ ] Day 11-14: AI Agents
+- [x] Day 11: LangChain Basics
+- [ ] Day 12-14: AI Agents
 
 ### Phase 3: Advanced Agents (Day 15-21) ⚪ Upcoming
 - ReAct Pattern
@@ -352,6 +383,23 @@ python day10_rag_system.py
 ---
 
 ## 📝 Reflections
+
+**Day 11 Thoughts**:
+> Today I learned LangChain, and it feels like moving from a workshop to a factory! Previously, every AI application required manual handling: string concatenation, API calls, JSON parsing... Now with LangChain, a few lines of code can accomplish complex tasks with clear structure. The Chain concept using the | operator is elegant - it's like Unix pipes but for LLM operations. I built 10 demonstrations covering prompts, chains, output parsers, and even a complete customer service example.
+
+**Challenges Faced**:
+- Understanding the | operator as pipe composition, not bitwise OR
+- Matching input/output types between chain components
+- Managing data flow in multi-step chains
+- Integrating DashScope with LangChain's ChatOpenAI interface
+
+**Breakthroughs**:
+- Mastered LangChain's core abstractions (Prompt, Model, Parser, Chain)
+- Built complex multi-step chains with simple syntax
+- Understood component reusability and composability
+- Successfully integrated Alibaba DashScope with LangChain
+
+---
 
 **Day 10 Thoughts**:
 > Today I built a RAG system - the key technology that makes AI truly useful with private knowledge! The biggest insight: pure LLM is like a smart but forgetful person, while RAG gives them a library and search system. I implemented document chunking, embedding-based retrieval, and context-aware answering. The cosine similarity search is elegant - it finds semantically related content even without keyword matching.
@@ -415,6 +463,7 @@ python day10_rag_system.py
 8. AI Chat Assistant - DashScope API integration
 9. Prompt Engineering - 8 prompt techniques
 10. RAG System - Document-based Q&A
+11. LangChain Basics - Chains and Prompts
 
 **Skills Mastered**:
 - Python syntax and data structures
