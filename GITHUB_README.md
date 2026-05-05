@@ -4,7 +4,7 @@
 - **Start Date**: April 27, 2026
 - **Current Day**: Day 12
 - **Phase**: Phase 2 - LangChain & LLMs
-- **Status**: 🟢 Phase 2 Active - AI Agent Basics Complete
+- **Status**: 🟢 Phase 2 Active - Memory System Complete
 
 ---
 
@@ -306,30 +306,31 @@ python day11_langchain_basics.py
 
 ---
 
-### ✅ Day 12: AI Agent Basics
+### ✅ Day 12: Memory System
 **Date**: 2026-05-08
-**Technologies**: Python, ReAct, Tool Use, Agent Loop
-**Files**: [`day12_ai_agent.py`](./day12_ai_agent.py)
+**Technologies**: Python, LangChain Memory, Stateful Conversation
+**Files**: [`day12_memory_system.py`](./day12_memory_system.py)
 
 **What I Learned**:
-- AI Agent concepts and architecture
-- ReAct pattern (Reasoning + Acting)
-- Tool definition and registration
-- Agent loop implementation
-- Dynamic tool selection by LLM
-- Multi-step reasoning with observations
+- Why AI needs memory systems
+- Buffer Memory (keep recent N rounds)
+- Summary Memory (compress history into summary)
+- Entity Memory (extract and remember key facts)
+- Memory persistence with JSON files
+- MessagesPlaceholder for conversation history
+- Entity extraction with LLM
 
 **Features**:
-- ReAct Agent with thought-action-observation loop
-- 5 built-in tools (time, weather, calculator, search, translate)
-- Automatic tool selection based on descriptions
-- Conversation history tracking
-- Individual tool testing mode
-- Demo mode without API key
+- Three memory modes: Buffer, Summary, Full
+- Automatic entity extraction from user input
+- Memory persistence across sessions
+- Dynamic memory mode switching
+- Memory state visualization
+- Integration with LangChain ChatPromptTemplate
 
 **Run It**:
 ```bash
-python day12_ai_agent.py
+python day12_memory_system.py
 ```
 
 ---
@@ -338,7 +339,7 @@ python day12_ai_agent.py
 
 | Day | Project | Status |
 |-----|---------|--------|
-| Day 13 | Multi-Agent System | 📋 Planned |
+| Day 13 | Tool Use - AI Agent | 📋 Planned |
 
 ---
 
@@ -358,8 +359,9 @@ python day12_ai_agent.py
 - [x] Day 9: Prompt Engineering
 - [x] Day 10: RAG Systems
 - [x] Day 11: LangChain Basics
-- [x] Day 12: AI Agent Basics
-- [ ] Day 13-14: Advanced Agents
+- [x] Day 12: Memory System
+- [ ] Day 13: Tool Use - AI Agent
+- [ ] Day 14: Intelligent Customer Service
 
 ### Phase 3: Advanced Agents (Day 15-21) ⚪ Upcoming
 - ReAct Pattern
@@ -401,32 +403,32 @@ python day12_ai_agent.py
 
 ## 🚀 Next Steps
 
-**Tomorrow's Goal**: Multi-Agent System - Build collaborative agents
+**Tomorrow's Goal**: Tool Use - Build AI Agent with tools
 
 **Skills to Practice**:
-- Multi-agent collaboration
-- Role-based agents
-- Task delegation
-- Agent communication
+- Tool definition and registration
+- Function calling
+- Agent loop
+- ReAct pattern
 
 ---
 
 ## 📝 Reflections
 
 **Day 12 Thoughts**:
-> Today I built my first AI Agent using the ReAct pattern! This is the key step that transforms AI from 'talking' to 'doing'. The biggest insight: an Agent is like a personal assistant with hands and a brain. The ReAct loop lets AI think like a human - first figure out what to do, then do it, observe the result, and decide the next step. I implemented 5 tools and watched the AI autonomously choose which ones to use based on the user's question.
+> Today I learned about Memory Systems - the key to transforming AI from a 'stranger' to a 'friend' in every conversation. The biggest insight: AI without memory is like a goldfish, forgetting everything after each interaction. With memory, AI can remember your name, preferences, and previous conversations. I implemented three types of memory: Buffer (short-term), Summary (long-term compression), and Entity (structured facts extraction). The entity extraction feature is particularly cool - the AI automatically picks out key information like names and preferences from conversations.
 
 **Challenges Faced**:
-- Designing clear tool descriptions for accurate selection
-- Controlling the LLM's output format (Thought/Action/Final Answer)
-- Preventing infinite loops with max iteration limits
-- Parsing Action and Action Input from LLM responses
+- Balancing memory length vs token cost
+- Designing effective summarization prompts
+- Handling entity conflicts (user changes preference)
+- Persisting memory across sessions
 
 **Breakthroughs**:
-- Successfully built a working ReAct Agent from scratch
-- Understood the power of tool-augmented LLMs
-- Learned how prompt engineering controls agent behavior
-- Implemented dynamic tool selection based on descriptions
+- Built a chatbot with 3 different memory modes
+- Implemented automatic entity extraction
+- Understood trade-offs between memory types
+- Successfully persisted memory to JSON files
 
 ---
 
@@ -510,7 +512,7 @@ python day12_ai_agent.py
 9. Prompt Engineering - 8 prompt techniques
 10. RAG System - Document-based Q&A
 11. LangChain Basics - Chains and Prompts
-12. AI Agent - ReAct pattern with tool use
+12. Memory System - Stateful conversation with 3 memory types
 
 **Skills Mastered**:
 - Python syntax and data structures

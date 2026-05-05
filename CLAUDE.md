@@ -32,7 +32,7 @@ python day08_openai_chat.py
 python day09_prompt_engineering.py
 python day10_rag_system.py
 python day11_langchain_basics.py
-python day12_ai_agent.py
+python day12_memory_system.py
 ```
 
 ### Install Dependencies

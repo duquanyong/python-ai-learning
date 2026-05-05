@@ -1,263 +1,232 @@
-# 📝 Day 12: AI Agent基础 - ReAct与工具调用
+# 📝 Day 12: 记忆系统 - 有状态的对话
 
 **学习日期**: 2026-05-08  
-**项目**: AI Agent - 能使用工具的智能体  
+**项目**: 记忆系统 - 让AI记住对话历史  
 **预计时间**: 25分钟实践 + 30分钟理论学习  
-**项目定位**: Phase 2进阶，学习AI Agent核心概念
+**项目定位**: Phase 2进阶，学习AI记忆机制
 
 ---
 
 ## 🎯 今天学到的内容
 
-### 1. 什么是AI Agent？
+### 1. 为什么需要记忆？
 
-**AI Agent（AI智能体）** 是一种能够自主感知环境、做出决策并执行行动的AI系统。
+**问题**：AI是无状态的，每次对话都是独立的。
 
-**与普通AI的区别**：
+```
+用户: 我叫张三
+AI: 你好张三！
 
-| 特性 | 普通AI（Chatbot） | AI Agent |
-|------|------------------|----------|
-| 交互方式 | 被动回答 | 主动行动 |
-| 工具使用 | 无 | 能调用工具 |
-| 推理能力 | 单次推理 | 多步推理 |
-| 记忆 | 短期 | 可长期 |
-| 目标导向 | 无 | 有 |
+用户: 我叫什么？
+AI: 我不知道你的名字...  # ❌ 忘记了！
+```
 
-**类比理解**：
-- 普通AI = 图书管理员（你问，他答）
-- AI Agent = 私人助理（你提需求，他主动想办法完成）
+**解决**：给AI添加记忆系统，让它能记住：
+- 对话历史
+- 用户信息（名字、偏好）
+- 重要事实
+- 上下文关系
 
 ---
 
-### 2. ReAct模式
+### 2. 记忆类型
 
-#### ✅ 什么是ReAct？
+#### ✅ Buffer Memory（缓冲记忆）
 
-**ReAct（Reasoning + Acting）** 是一种让AI交替进行推理和行动的模式。
-
-**核心循环**：
-```
-┌─────────────┐
-│   Thought   │ ◀── 思考：我现在该做什么？
-│   (推理)    │
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│   Action    │ ◀── 行动：使用工具/给出答案
-│   (行动)    │
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│ Observation │ ◀── 观察：工具返回了什么？
-│   (观察)    │
-└──────┬──────┘
-       │
-       └──▶ 回到Thought，继续循环...
-```
-
-#### ✅ ReAct示例
-
-```
-用户问题："现在北京天气怎么样？"
-
-Thought: 用户想知道北京的天气。我需要使用天气工具来获取信息。
-Action: get_weather
-Action Input: {"city": "北京"}
-
-Observation: 北京当前天气: 晴天, 温度: 25°C
-
-Thought: 我已经获取了北京的天气信息。现在可以直接回答用户。
-Final Answer: 北京当前天气是晴天，温度25°C。
-```
-
----
-
-### 3. 工具（Tools）
-
-#### ✅ 什么是工具？
-
-工具是Agent可以调用的外部功能，让AI能够：
-- 获取实时信息（天气、时间）
-- 执行计算（数学运算）
-- 查询数据库（知识库搜索）
-- 调用API（翻译、搜索）
-
-#### ✅ 工具定义
+保留最近N轮对话，简单高效。
 
 ```python
-class Tool:
-    def __init__(self, name, description, func):
-        self.name = name           # 工具名称
-        self.description = description  # 工具描述（AI通过描述选择工具）
-        self.func = func           # 实际执行的函数
+class BufferMemory:
+    def __init__(self, k=5):  # 保留最近5轮
+        self.messages = []
+        self.k = k
 
-# 示例工具
-def get_weather(city="北京"):
-    return f"{city}天气: 晴天, 25°C"
-
-weather_tool = Tool(
-    name="get_weather",
-    description="获取指定城市的天气信息",
-    func=get_weather
-)
+    def get_messages(self):
+        # 返回最近k轮（2k条消息）
+        return self.messages[-self.k * 2:]
 ```
 
-#### ✅ 工具注册表
+**特点**：
+- 简单直接
+- 内存可控
+- 可能丢失早期信息
+
+#### ✅ Summary Memory（摘要记忆）
+
+用摘要代替完整历史，保留关键信息。
 
 ```python
-class ToolRegistry:
+class SummaryMemory:
+    def __init__(self, llm):
+        self.messages = []
+        self.summary = ""  # 对话摘要
+        self.llm = llm
+
+    def get_messages(self):
+        # 返回摘要 + 最近1轮
+        return [
+            SystemMessage(content=f"摘要: {self.summary}"),
+            *self.messages[-2:]  # 最近1轮
+        ]
+```
+
+**特点**：
+- 保留长期信息
+- 节省token
+- 可能丢失细节
+
+#### ✅ Entity Memory（实体记忆）
+
+提取和记忆关键实体（人名、地点、偏好等）。
+
+```python
+class EntityMemory:
     def __init__(self):
-        self.tools = {}
+        self.entities = {
+            "name": [{"value": "张三", "context": "用户自我介绍"}],
+            "preference": [{"value": "Python", "context": "编程语言偏好"}]
+        }
+```
 
-    def register(self, tool):
-        self.tools[tool.name] = tool
+**特点**：
+- 结构化信息
+- 精准查询
+- 需要实体提取
 
-    def get(self, name):
-        return self.tools.get(name)
+---
+
+### 3. 记忆管理
+
+#### ✅ 消息格式
+
+LangChain使用标准消息类型：
+
+```python
+from langchain_core.messages import (
+    HumanMessage,    # 用户消息
+    AIMessage,       # AI消息
+    SystemMessage    # 系统提示
+)
+
+# 创建消息
+user_msg = HumanMessage(content="你好")
+ai_msg = AIMessage(content="你好！有什么可以帮助你的？")
+```
+
+#### ✅ 提示词中的记忆
+
+```python
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+
+# 创建带历史记录的模板
+prompt = ChatPromptTemplate.from_messages([
+    ("system", "你是一个助手。"),
+    MessagesPlaceholder(variable_name="history"),  # 插入历史
+    ("human", "{input}")
+])
+
+# 使用
+messages = prompt.format_messages(
+    history=[HumanMessage(content="你好"), AIMessage(content="你好！")],
+    input="今天天气怎么样？"
+)
 ```
 
 ---
 
-### 4. Agent循环实现
+### 4. 记忆持久化
 
-#### ✅ 核心逻辑
-
-```python
-class ReActAgent:
-    def run(self, query):
-        for iteration in range(max_iterations):
-            # 1. 调用LLM，获取Thought/Action
-            response = llm.invoke(messages)
-
-            # 2. 检查是否有最终答案
-            if has_final_answer(response):
-                return extract_answer(response)
-
-            # 3. 解析Action
-            action = parse_action(response)
-
-            # 4. 执行工具
-            tool = tool_registry.get(action.tool)
-            observation = tool.execute(**action.input)
-
-            # 5. 将观察结果加入上下文
-            messages.append(f"Observation: {observation}")
-
-        return "达到最大迭代次数"
-```
-
-#### ✅ 提示词设计
+#### ✅ 保存到文件
 
 ```python
-system_prompt = """你是一个AI助手，可以使用工具来帮助用户。
-
-可用工具:
-- get_current_time: 获取当前时间
-- get_weather: 获取天气，参数: city
-- calculate: 计算表达式，参数: expression
-
-重要规则:
-1. 如果需要使用工具，请按以下格式回复:
-   Thought: [你的思考]
-   Action: [工具名]
-   Action Input: [参数JSON]
-
-2. 如果不需要工具，直接回复:
-   Thought: [你的思考]
-   Final Answer: [最终答案]
-"""
-```
-
----
-
-### 5. 工具调用的关键设计
-
-#### ✅ 工具描述的重要性
-
-AI通过工具描述来选择使用哪个工具，描述要清晰明确：
-
-```python
-# 好的描述
-calculate_tool = Tool(
-    name="calculate",
-    description="计算数学表达式，参数: expression(如'1+2*3')",
-    func=calculate
-)
-
-# 不好的描述
-calculate_tool = Tool(
-    name="calculate",
-    description="计算工具",  # 太模糊
-    func=calculate
-)
-```
-
-#### ✅ 参数传递
-
-```python
-# Action Input使用JSON格式
-Action: get_weather
-Action Input: {"city": "上海"}
-
-# 解析JSON参数
 import json
-params = json.loads(action_input)
-result = tool.execute(**params)
+
+def save_memory(messages, filepath):
+    data = []
+    for msg in messages:
+        data.append({
+            "type": msg.type,
+            "content": msg.content
+        })
+    with open(filepath, 'w') as f:
+        json.dump(data, f)
+
+def load_memory(filepath):
+    with open(filepath, 'r') as f:
+        data = json.load(f)
+    messages = []
+    for item in data:
+        if item["type"] == "human":
+            messages.append(HumanMessage(content=item["content"]))
+        elif item["type"] == "ai":
+            messages.append(AIMessage(content=item["content"]))
+    return messages
 ```
 
 ---
 
-### 6. Agent与Chain的区别
+### 5. 实体提取
 
-| 特性 | Chain | Agent |
-|------|-------|-------|
-| 执行流程 | 固定 | 动态 |
-| 工具使用 | 预定义 | 自主选择 |
-| 推理步骤 | 单步 | 多步循环 |
-| 适用场景 | 确定任务 | 开放任务 |
-| 代码复杂度 | 简单 | 较复杂 |
+#### ✅ 用LLM提取实体
 
-**选择建议**：
-- 任务确定 → 用Chain
-- 任务开放 → 用Agent
+```python
+def extract_entities(text, llm):
+    prompt = f"""从以下文本中提取关键实体：
+
+文本: {text}
+
+提取:
+1. 人名
+2. 地点
+3. 偏好
+4. 重要信息
+
+输出JSON格式。"""
+
+    response = llm.invoke([HumanMessage(content=prompt)])
+    # 解析JSON...
+    return entities
+```
 
 ---
 
-## 🛠️ 实战项目：ReAct Agent
+## 🛠️ 实战项目：记忆聊天机器人
 
 ### 项目功能
 
-✅ **ReAct循环** - Thought → Action → Observation  
-✅ **工具注册** - 动态注册和管理工具  
-✅ **自动选择** - AI根据描述自动选择工具  
-✅ **多轮推理** - 复杂问题多步解决  
-✅ **工具测试** - 单独测试每个工具  
-✅ **演示模式** - 无API密钥也能体验  
+✅ **Buffer Memory** - 保留最近N轮对话  
+✅ **Summary Memory** - 用摘要代替完整历史  
+✅ **Entity Memory** - 提取和记忆关键信息  
+✅ **记忆持久化** - 保存到JSON文件  
+✅ **模式切换** - 动态切换记忆类型  
+✅ **记忆查看** - 查看当前记忆状态  
 
 ### 核心代码结构
 
 ```python
-class ReActAgent:
-    def __init__(self, api_key):
+class MemoryChatBot:
+    def __init__(self, api_key, memory_type="buffer"):
         self.llm = ChatOpenAI(...)
-        self.tool_registry = ToolRegistry()
-        self.max_iterations = 5
+        self.memory = BufferMemory(k=5)
+        self.entity_memory = EntityMemory()
 
-    def run(self, query):
-        # ReAct循环
-        for i in range(self.max_iterations):
-            response = self.llm.invoke(messages)
+    def chat(self, message):
+        # 1. 提取实体
+        entities = self.entity_memory.extract(message)
 
-            if self._has_final_answer(response):
-                return self._extract_answer(response)
+        # 2. 添加到记忆
+        self.memory.add_user_message(message)
 
-            action = self._parse_action(response)
-            tool = self.tool_registry.get(action["tool"])
-            observation = tool.execute(**action["input"])
+        # 3. 构建消息（包含历史）
+        messages = self._build_messages()
 
-            messages.append(f"Observation: {observation}")
+        # 4. 调用LLM
+        response = self.llm.invoke(messages)
+
+        # 5. 保存到记忆
+        self.memory.add_ai_message(response.content)
+
+        return response.content
 ```
 
 ### 运行方式
@@ -270,122 +239,74 @@ source .venv/Scripts/activate
 export DASHSCOPE_API_KEY="sk-your-key"
 
 # 运行程序
-python day12_ai_agent.py
+python day12_memory_system.py
 ```
-
----
-
-## 📊 ReAct vs 其他Agent模式
-
-| 模式 | 特点 | 适用场景 |
-|------|------|----------|
-| **ReAct** | 推理+行动交替 | 通用任务 |
-| **Plan-and-Solve** | 先规划再执行 | 复杂多步任务 |
-| **Reflection** | 自我反思改进 | 需要高质量输出 |
-| **Multi-Agent** | 多个Agent协作 | 复杂系统 |
 
 ---
 
 ## 💡 今天的难点解析
 
-### 难点1：提示词格式控制
+### 难点1：记忆长度控制
 
 ```python
-# 问题：AI不按要求格式输出
-# 解决：在提示词中给出明确示例
+# 问题：记忆太长，超过模型上下文限制
+# 解决：使用BufferMemory限制轮数
 
-system_prompt = """
-请严格按以下格式回复：
+class BufferMemory:
+    def __init__(self, k=5):  # 只保留5轮
+        self.k = k
 
-如果需要工具：
-Thought: 我需要获取天气信息
-Action: get_weather
-Action Input: {"city": "北京"}
-
-如果完成：
-Thought: 我已经获取到信息
-Final Answer: 北京天气是晴天
-
-注意：
-- Thought必须包含思考过程
-- Action必须是工具名之一
-- Action Input必须是合法JSON
-"""
+    def get_messages(self):
+        return self.messages[-self.k * 2:]  # user + ai = 2条/轮
 ```
 
-### 难点2：工具选择准确性
+### 难点2：摘要质量
 
 ```python
-# 问题：AI选错工具
-# 解决：优化工具描述，添加示例
+# 问题：摘要丢失重要信息
+# 解决：定期更新摘要，保留关键实体
 
-# 优化前
-description = "搜索知识"
-
-# 优化后
-description = "搜索知识库获取信息，适用于：概念解释、定义查询、事实核实。参数: query(关键词)"
+class SummaryMemory:
+    def summarize(self):
+        # 用LLM生成摘要
+        prompt = "总结以下对话的关键信息..."
+        self.summary = self.llm.invoke(prompt)
 ```
 
-### 难点3：循环终止条件
+### 难点3：实体冲突
 
 ```python
-# 问题：Agent无限循环
-# 解决：设置最大迭代次数 + 明确的终止条件
+# 问题：用户说"我喜欢Python"，后来又说"我喜欢Java"
+# 解决：保留历史，标注时间
 
-class ReActAgent:
-    def __init__(self, max_iterations=5):
-        self.max_iterations = max_iterations
-
-    def run(self, query):
-        for i in range(self.max_iterations):
-            # ...
-            if has_final_answer(response):
-                return answer
-
-        return "达到最大迭代次数，未能完成。"
+self.entities["preference"] = [
+    {"value": "Python", "timestamp": "2024-01-01"},
+    {"value": "Java", "timestamp": "2024-01-15"}
+]
 ```
 
 ---
 
 ## 🧪 动手实验
 
-### 实验1：手动模拟ReAct
+### 实验1：测试不同记忆模式
 
 ```python
-# 模拟Agent思考过程
-query = "计算 123 + 456"
+# Buffer Memory
+bot = MemoryChatBot(memory_type="buffer")
+# 适合：短期对话，关注最近上下文
 
-# Step 1: Thought
-print("Thought: 用户要求计算，我应该使用calculate工具")
-
-# Step 2: Action
-print("Action: calculate")
-print('Action Input: {"expression": "123+456"}')
-
-# Step 3: Observation
-result = 123 + 456
-print(f"Observation: {result}")
-
-# Step 4: Final Answer
-print(f"Final Answer: 123 + 456 = {result}")
+# Summary Memory
+bot = MemoryChatBot(memory_type="summary")
+# 适合：长期对话，需要历史背景
 ```
 
-### 实验2：添加新工具
+### 实验2：实体提取
 
 ```python
-# 定义新工具
-def get_news(category="科技"):
-    return f"【{category}新闻】今天发布了重要更新..."
-
-# 注册
-agent.tool_registry.register(Tool(
-    name="get_news",
-    description="获取新闻，参数: category(类别，如'科技'/'体育')",
-    func=get_news
-))
-
-# 使用
-result = agent.run("有什么科技新闻？")
+text = "我叫李四，住在北京，喜欢打篮球"
+entities = extract_entities(text)
+# 结果: {"name": "李四", "location": "北京", "hobby": "篮球"}
 ```
 
 ---
@@ -393,72 +314,68 @@ result = agent.run("有什么科技新闻？")
 ## 💡 今天的学习收获
 
 ### ✅ 掌握了
-- AI Agent的概念和特点
-- ReAct模式（推理+行动）
-- 工具的定义和注册
-- Agent循环的实现
-- 提示词设计控制Agent行为
+- 为什么AI需要记忆
+- Buffer/Summary/Entity三种记忆类型
+- 消息格式和MessagesPlaceholder
+- 记忆持久化（JSON文件）
+- 实体提取方法
 
 ### 🤔 理解难点
-- Agent是动态执行，Chain是固定执行
-- 工具描述直接影响AI的选择准确性
-- ReAct循环需要明确的终止条件
-- 提示词格式控制是关键
+- 记忆长度需要平衡（保留vs成本）
+- 摘要会丢失细节
+- 实体提取依赖LLM质量
+- 需要处理冲突和更新
 
 ### 🚀 实践成果
-- ✅ 实现了ReAct Agent
-- ✅ 注册了5个实用工具
-- ✅ 支持多轮推理
-- ✅ 理解了Agent与Chain的区别
+- ✅ 实现了3种记忆模式
+- ✅ 支持记忆持久化
+- ✅ 实现了实体提取
+- ✅ 可以动态切换模式
 
 ---
 
 ## 📚 扩展阅读
 
-### ReAct论文
-- [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629)
-
-### LangChain Agent
-- [LangChain Agents文档](https://python.langchain.com/docs/concepts/agents)
-- [Tool Calling](https://python.langchain.com/docs/concepts/tool_calling)
+### LangChain Memory
+- [Memory文档](https://python.langchain.com/docs/concepts/memory)
+- [ConversationBufferMemory](https://python.langchain.com/docs/concepts/memory#conversation-buffer-memory)
 
 ---
 
-## 🎯 明日预告：多Agent系统
+## 🎯 明日预告：工具调用
 
 **将学习**:
-- 多Agent协作
-- Agent角色分工
-- 任务分配与协调
-- 构建简单的多Agent系统
+- 让AI使用外部工具
+- Tool定义和注册
+- Function Calling
+- 构建工具使用Agent
 
-**项目**: 构建一个由多个Agent组成的协作系统
+**项目**: 构建一个能使用工具的AI Agent
 
 ---
 
 ## 💭 学习心得
 
-> "Day 12学习了AI Agent，这是让AI从'会说话'到'会做事'的关键一步。
+> "Day 12学习了记忆系统，这是让AI从'陌生人'变成'老朋友'的关键。
 >
-> 最大的感悟：Agent就像一个有手有脑的助手，不仅能思考，还能行动。
-> ReAct模式让AI像人类一样：先想想该做什么，然后去做，观察结果，
-> 再决定下一步。这种循环让AI能处理更复杂的任务。
+> 最大的感悟：没有记忆的AI就像金鱼，每次对话都是第一次见面。
+> 有了记忆，AI能记住你的名字、喜好、之前的对话，体验完全不同。
 >
 > 几个重要的领悟：
-> 1. 工具是Agent的手 - 没有工具，Agent只能空谈
-> 2. 描述是工具的招牌 - 好的描述让AI选对工具
-> 3. 循环是Agent的脑 - ReAct让AI能逐步解决问题
-> 4. 提示词是Agent的说明书 - 格式控制很重要
+> 1. Buffer Memory简单实用 - 像短期记忆
+> 2. Summary Memory适合长对话 - 像长期记忆
+> 3. Entity Memory精准 - 像知识图谱
+> 4. 持久化让AI记住你 - 即使重启也不忘
 >
-> 明天学习多Agent系统，让多个AI协作完成任务！"
+> 明天学习工具调用，让AI不仅能记住，还能行动！"
 
 ---
 
-**完整代码**: [`day12_ai_agent.py`](https://github.com/duquanyong/python-ai-learning/blob/main/day12_ai_agent.py)
+**完整代码**: [`day12_memory_system.py`](https://github.com/duquanyong/python-ai-learning/blob/main/day12_memory_system.py)
 
 ---
 
 <div align="center">
-  <p>⭐ Day 12 完成！AI Agent入门！⭐</p>
-  <p><em>"给AI工具，它就能改变世界。"</em></p>
+  <p>⭐ Day 12 完成！AI有了记忆！⭐</p>
+  <p><em>"记住过去，才能更好地面向未来。"</em></p>
 </div>
