@@ -2,9 +2,9 @@
 
 ## 📊 Progress Overview
 - **Start Date**: April 27, 2026
-- **Current Day**: Day 11
+- **Current Day**: Day 12
 - **Phase**: Phase 2 - LangChain & LLMs
-- **Status**: 🟢 Phase 2 Active - LangChain Basics Complete
+- **Status**: 🟢 Phase 2 Active - AI Agent Basics Complete
 
 ---
 
@@ -306,11 +306,39 @@ python day11_langchain_basics.py
 
 ---
 
+### ✅ Day 12: AI Agent Basics
+**Date**: 2026-05-08
+**Technologies**: Python, ReAct, Tool Use, Agent Loop
+**Files**: [`day12_ai_agent.py`](./day12_ai_agent.py)
+
+**What I Learned**:
+- AI Agent concepts and architecture
+- ReAct pattern (Reasoning + Acting)
+- Tool definition and registration
+- Agent loop implementation
+- Dynamic tool selection by LLM
+- Multi-step reasoning with observations
+
+**Features**:
+- ReAct Agent with thought-action-observation loop
+- 5 built-in tools (time, weather, calculator, search, translate)
+- Automatic tool selection based on descriptions
+- Conversation history tracking
+- Individual tool testing mode
+- Demo mode without API key
+
+**Run It**:
+```bash
+python day12_ai_agent.py
+```
+
+---
+
 ### 📅 Upcoming Days
 
 | Day | Project | Status |
 |-----|---------|--------|
-| Day 12 | AI Agent Basics | 📋 Planned |
+| Day 13 | Multi-Agent System | 📋 Planned |
 
 ---
 
@@ -330,7 +358,8 @@ python day11_langchain_basics.py
 - [x] Day 9: Prompt Engineering
 - [x] Day 10: RAG Systems
 - [x] Day 11: LangChain Basics
-- [ ] Day 12-14: AI Agents
+- [x] Day 12: AI Agent Basics
+- [ ] Day 13-14: Advanced Agents
 
 ### Phase 3: Advanced Agents (Day 15-21) ⚪ Upcoming
 - ReAct Pattern
@@ -372,17 +401,34 @@ python day11_langchain_basics.py
 
 ## 🚀 Next Steps
 
-**Tomorrow's Goal**: AI Agent Basics - Build tool-using agents
+**Tomorrow's Goal**: Multi-Agent System - Build collaborative agents
 
 **Skills to Practice**:
-- ReAct pattern
-- Tool use
-- Agent loop
-- Function calling
+- Multi-agent collaboration
+- Role-based agents
+- Task delegation
+- Agent communication
 
 ---
 
 ## 📝 Reflections
+
+**Day 12 Thoughts**:
+> Today I built my first AI Agent using the ReAct pattern! This is the key step that transforms AI from 'talking' to 'doing'. The biggest insight: an Agent is like a personal assistant with hands and a brain. The ReAct loop lets AI think like a human - first figure out what to do, then do it, observe the result, and decide the next step. I implemented 5 tools and watched the AI autonomously choose which ones to use based on the user's question.
+
+**Challenges Faced**:
+- Designing clear tool descriptions for accurate selection
+- Controlling the LLM's output format (Thought/Action/Final Answer)
+- Preventing infinite loops with max iteration limits
+- Parsing Action and Action Input from LLM responses
+
+**Breakthroughs**:
+- Successfully built a working ReAct Agent from scratch
+- Understood the power of tool-augmented LLMs
+- Learned how prompt engineering controls agent behavior
+- Implemented dynamic tool selection based on descriptions
+
+---
 
 **Day 11 Thoughts**:
 > Today I learned LangChain, and it feels like moving from a workshop to a factory! Previously, every AI application required manual handling: string concatenation, API calls, JSON parsing... Now with LangChain, a few lines of code can accomplish complex tasks with clear structure. The Chain concept using the | operator is elegant - it's like Unix pipes but for LLM operations. I built 10 demonstrations covering prompts, chains, output parsers, and even a complete customer service example.
@@ -464,6 +510,7 @@ python day11_langchain_basics.py
 9. Prompt Engineering - 8 prompt techniques
 10. RAG System - Document-based Q&A
 11. LangChain Basics - Chains and Prompts
+12. AI Agent - ReAct pattern with tool use
 
 **Skills Mastered**:
 - Python syntax and data structures
