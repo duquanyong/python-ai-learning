@@ -2,9 +2,9 @@
 
 ## 📊 Progress Overview
 - **Start Date**: April 27, 2026
-- **Current Day**: Day 12
+- **Current Day**: Day 13
 - **Phase**: Phase 2 - LangChain & LLMs
-- **Status**: 🟢 Phase 2 Active - Memory System Complete
+- **Status**: 🟢 Phase 2 Active - Tool Use Complete
 
 ---
 
@@ -339,7 +339,38 @@ python day12_memory_system.py
 
 | Day | Project | Status |
 |-----|---------|--------|
-| Day 13 | Tool Use - AI Agent | 📋 Planned |
+### ✅ Day 13: Tool Use
+**Date**: 2026-05-09
+**Technologies**: Python, LangChain Tools, Function Calling
+**Files**: [`day13_tool_use.py`](./day13_tool_use.py)
+
+**What I Learned**:
+- Function Calling原理和流程
+- LangChain Tool定义和绑定
+- bind_tools()使用方法
+- ToolMessage消息类型
+- Multi-tool and chain tool calls
+- Tool description design
+
+**Features**:
+- 5 built-in tools (time, calculator, weather, search, translate)
+- Automatic tool selection by AI
+- JSON parameter passing
+- Tool result integration into responses
+- Function Calling demo mode
+
+**Run It**:
+```bash
+python day13_tool_use.py
+```
+
+---
+
+### 📅 Upcoming Days
+
+| Day | Project | Status |
+|-----|---------|--------|
+| Day 14 | Intelligent Customer Service | 📋 Planned |
 
 ---
 
@@ -360,7 +391,7 @@ python day12_memory_system.py
 - [x] Day 10: RAG Systems
 - [x] Day 11: LangChain Basics
 - [x] Day 12: Memory System
-- [ ] Day 13: Tool Use - AI Agent
+- [x] Day 13: Tool Use
 - [ ] Day 14: Intelligent Customer Service
 
 ### Phase 3: Advanced Agents (Day 15-21) ⚪ Upcoming
@@ -403,17 +434,33 @@ python day12_memory_system.py
 
 ## 🚀 Next Steps
 
-**Tomorrow's Goal**: Tool Use - Build AI Agent with tools
+**Tomorrow's Goal**: Intelligent Customer Service - Comprehensive project
 
 **Skills to Practice**:
-- Tool definition and registration
-- Function calling
-- Agent loop
-- ReAct pattern
+- Integrate memory, tools, RAG
+- Build complete customer service bot
+- Handle multi-turn conversations
 
 ---
 
 ## 📝 Reflections
+
+**Day 13 Thoughts**:
+> Today I learned Tool Use / Function Calling - the technology that gives AI hands and feet. The biggest insight: without tools, AI is like a person who can only talk but can't do anything. With Function Calling, AI can get real-time information, perform calculations, query databases. I implemented 5 tools and watched the AI automatically choose which ones to call based on the user's question. The structured JSON format is much more reliable than text parsing.
+
+**Challenges Faced**:
+- Designing clear tool descriptions for accurate selection
+- Understanding the tool call message flow
+- Handling multiple tool calls in sequence
+- Parsing tool results back into the conversation
+
+**Breakthroughs**:
+- Successfully implemented Function Calling with LangChain
+- Understood the difference between Function Calling and ReAct
+- Built a working tool-use demo with 5 tools
+- Learned how ToolMessage fits into the conversation flow
+
+---
 
 **Day 12 Thoughts**:
 > Today I learned about Memory Systems - the key to transforming AI from a 'stranger' to a 'friend' in every conversation. The biggest insight: AI without memory is like a goldfish, forgetting everything after each interaction. With memory, AI can remember your name, preferences, and previous conversations. I implemented three types of memory: Buffer (short-term), Summary (long-term compression), and Entity (structured facts extraction). The entity extraction feature is particularly cool - the AI automatically picks out key information like names and preferences from conversations.
@@ -513,6 +560,7 @@ python day12_memory_system.py
 10. RAG System - Document-based Q&A
 11. LangChain Basics - Chains and Prompts
 12. Memory System - Stateful conversation with 3 memory types
+13. Tool Use - Function calling with 5 tools
 
 **Skills Mastered**:
 - Python syntax and data structures

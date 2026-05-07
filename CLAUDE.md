@@ -8,7 +8,7 @@ This is a personal Python & AI learning journey repo (30-day curriculum). Each d
 
 - **Language**: Python 3.12
 - **Learning start date**: April 27, 2026
-- **Current progress**: Day 12 (Phase 2: LangChain & LLMs)
+- **Current progress**: Day 13 (Phase 2: LangChain & LLMs)
 
 ## Running Code
 
@@ -33,6 +33,7 @@ python day09_prompt_engineering.py
 python day10_rag_system.py
 python day11_langchain_basics.py
 python day12_memory_system.py
+python day13_tool_use.py
 ```
 
 ### Install Dependencies
