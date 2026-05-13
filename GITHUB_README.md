@@ -2,9 +2,9 @@
 
 ## 📊 Progress Overview
 - **Start Date**: April 27, 2026
-- **Current Day**: Day 14
-- **Phase**: Phase 2 - LangChain & LLMs
-- **Status**: ✅ Phase 2 Complete - Customer Service Project Done
+- **Current Day**: Day 15
+- **Phase**: Phase 3 - AI Agents
+- **Status**: 🟢 Phase 3 Active - ReAct Agent
 
 ---
 
@@ -335,10 +335,6 @@ python day12_memory_system.py
 
 ---
 
-### 📅 Upcoming Days
-
-| Day | Project | Status |
-|-----|---------|--------|
 ### ✅ Day 13: Tool Use
 **Date**: 2026-05-09
 **Technologies**: Python, LangChain Tools, Function Calling
@@ -393,11 +389,38 @@ python day14_intelligent_customer_service.py
 
 ---
 
+### ✅ Day 15: ReAct Agent
+**Date**: 2026-05-13
+**Technologies**: Python, ReAct Pattern, Agent Loop
+**Files**: [`day15_react_agent.py`](./day15_react_agent.py)
+
+**What I Learned**:
+- ReAct pattern (Reasoning + Acting)
+- Agent thinking loop: Thought → Action → Observation
+- Action parsing from text output
+- Agent vs Function Calling comparison
+- Multi-step problem solving with AI
+
+**Features**:
+- Complete ReAct implementation from scratch
+- 5 tools with automatic selection
+- Thought/Action/Observation trace display
+- Demo mode with predefined scenarios
+- Simplified version using LangChain tools
+- ReAct vs Function Calling comparison
+
+**Run It**:
+```bash
+python day15_react_agent.py
+```
+
+---
+
 ### 📅 Upcoming Days
 
 | Day | Project | Status |
 |-----|---------|--------|
-| Day 15 | ReAct Agent | 📋 Planned |
+| Day 16 | Multi-Agent Collaboration | 📋 Planned |
 
 ---
 
@@ -412,7 +435,7 @@ python day14_intelligent_customer_service.py
 - [x] Day 6: Library Management System
 - [x] Day 7: Finance Tracker
 
-### Phase 2: LangChain & LLMs (Day 8-14) 🟢 Active
+### Phase 2: LangChain & LLMs (Day 8-14) ✅ Complete
 - [x] Day 8: DashScope API Integration
 - [x] Day 9: Prompt Engineering
 - [x] Day 10: RAG Systems
@@ -421,8 +444,8 @@ python day14_intelligent_customer_service.py
 - [x] Day 13: Tool Use
 - [x] Day 14: Intelligent Customer Service
 
-### Phase 3: Advanced Agents (Day 15-21) ⚪ Upcoming
-- ReAct Pattern
+### Phase 3: Advanced Agents (Day 15-21) 🟢 Active
+- [x] Day 15: ReAct Pattern
 - Multi-Agent Systems
 - Web Automation
 - Database Queries
@@ -454,14 +477,14 @@ python day14_intelligent_customer_service.py
 - ✅ DashScope API Integration
 - ✅ Prompt Engineering
 - ✅ RAG Systems
-- 🔄 AI Agents
-- 🔄 LangChain Framework
+- ✅ LangChain Framework
+- 🔄 AI Agents (ReAct Pattern)
 
 ---
 
 ## 🚀 Next Steps
 
-**Phase 2 Complete!** 🎉
+**Phase 3 Started!** 🚀
 
 **What I've Built**:
 - Day 8: AI Chat Assistant - First AI application
@@ -470,14 +493,15 @@ python day14_intelligent_customer_service.py
 - Day 11: LangChain Basics - Chains and Prompts
 - Day 12: Memory System - Stateful conversation
 - Day 13: Tool Use - Function calling
-- Day 14: Intelligent Customer Service - **Comprehensive project**
+- Day 14: Intelligent Customer Service - **Phase 2 Comprehensive project**
+- Day 15: ReAct Agent - Reasoning + Acting pattern
 
-**Tomorrow's Goal**: Phase 3 - ReAct Agent Pattern
+**Tomorrow's Goal**: Day 16 - Multi-Agent Collaboration
 
 **Skills to Practice**:
-- Agent reasoning and action loops
-- Multi-step problem solving
-- Autonomous AI agents
+- Multi-agent collaboration patterns
+- Agent task delegation
+- Agent team coordination
 
 ---
 
@@ -497,6 +521,24 @@ python day14_intelligent_customer_service.py
 - Understood the difference between Function Calling and ReAct
 - Built a working tool-use demo with 5 tools
 - Learned how ToolMessage fits into the conversation flow
+
+---
+
+**Day 15 Thoughts**:
+> Today I learned the ReAct pattern - the core foundation of AI Agents! The biggest insight: ReAct transforms AI from a 'question-answer machine' into a 'problem solver'. Instead of one-shot responses, the agent thinks step by step: Thought → Action → Observation → repeat until solved. I implemented the full loop from scratch - parsing Thoughts, extracting Actions, executing tools, and feeding Observations back. The transparency is amazing - I can see exactly how the AI reasons through a problem. I also built a comparison between ReAct and Function Calling: ReAct is great for learning and debugging (you see the reasoning chain), while Function Calling is better for production (structured JSON, more reliable). This is the start of Phase 3 - AI Agents!
+
+**Challenges Faced**:
+- Designing prompts that force AI to follow Thought/Action format
+- Parsing Action lines with regex (handling quotes, spaces, etc.)
+- Preventing infinite loops with max_iterations
+- Making the demo mode educational without API calls
+
+**Breakthroughs**:
+- Built a complete ReAct Agent from scratch
+- Understood the agent loop: Thought → Action → Observation
+- Implemented Action parsing with regex
+- Created both full ReAct and simplified LangChain versions
+- Clearly understood when to use ReAct vs Function Calling
 
 ---
 
@@ -618,6 +660,8 @@ python day14_intelligent_customer_service.py
 11. LangChain Basics - Chains and Prompts
 12. Memory System - Stateful conversation with 3 memory types
 13. Tool Use - Function calling with 5 tools
+14. Intelligent Customer Service - RAG + Memory + Tools integration
+15. ReAct Agent - Reasoning + Acting pattern
 
 **Skills Mastered**:
 - Python syntax and data structures
