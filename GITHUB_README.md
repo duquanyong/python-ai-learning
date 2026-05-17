@@ -2,9 +2,9 @@
 
 ## 📊 Progress Overview
 - **Start Date**: April 27, 2026
-- **Current Day**: Day 16
+- **Current Day**: Day 17
 - **Phase**: Phase 3 - AI Agents
-- **Status**: 🟢 Phase 3 Active - Multi-Agent Collaboration
+- **Status**: 🟢 Phase 3 Active - Web Scraper Agent
 
 ---
 
@@ -445,12 +445,42 @@ python day16_multi_agent.py
 
 ---
 
+### ✅ Day 17: Web Scraper Agent
+**Date**: 2026-05-15
+**Technologies**: Python, Web Scraping, Agent Autonomy
+**Files**: [`day17_web_scraper_agent.py`](./day17_web_scraper_agent.py)
+
+**What I Learned**:
+- Autonomous web scraping with Agent
+- Strategy planning for information gathering
+- Content extraction with BeautifulSoup
+- Batch processing multiple URLs
+- Error handling for network issues
+- Result aggregation and reporting
+
+**Features**:
+- Autonomous crawling with strategy planning
+- Content extraction (title, paragraphs, links, images)
+- Link discovery and filtering
+- Batch scraper for multiple URLs
+- AI-powered content analysis
+- Structured report generation
+- Demo mode without API key
+
+**Run It**:
+```bash
+python day17_web_scraper_agent.py
+```
+
+---
+
 ### 📅 Upcoming Days
 
 | Day | Project | Status |
 |-----|---------|--------|
 | Day 16 | Multi-Agent Collaboration | ✅ Complete |
-| Day 17 | Web Scraper Agent | 📋 Planned |
+| Day 17 | Web Scraper Agent | ✅ Complete |
+| Day 18 | Code Generation Agent | 📋 Planned |
 
 ---
 
@@ -477,7 +507,7 @@ python day16_multi_agent.py
 ### Phase 3: Advanced Agents (Day 15-21) 🟢 Active
 - [x] Day 15: ReAct Pattern
 - [x] Day 16: Multi-Agent Collaboration
-- Web Scraper Agent
+- [x] Day 17: Web Scraper Agent
 - Code Generation Agent
 - Database Agent
 - API Automation
@@ -511,7 +541,7 @@ python day16_multi_agent.py
 - ✅ Prompt Engineering
 - ✅ RAG Systems
 - ✅ LangChain Framework
-- 🔄 AI Agents (ReAct + Multi-Agent)
+- 🔄 AI Agents (ReAct + Multi-Agent + Web Scraping)
 
 ---
 
@@ -529,13 +559,14 @@ python day16_multi_agent.py
 - Day 14: Intelligent Customer Service - **Phase 2 Comprehensive project**
 - Day 15: ReAct Agent - Reasoning + Acting pattern
 - Day 16: Multi-Agent Collaboration - Team of agents
+- Day 17: Web Scraper Agent - Autonomous information gathering
 
-**Tomorrow's Goal**: Day 17 - Web Scraper Agent
+**Tomorrow's Goal**: Day 18 - Code Generation Agent
 
 **Skills to Practice**:
-- Web automation with agents
-- Autonomous information gathering
-- Agent-based data extraction
+- Code generation with AI
+- Automated programming assistance
+- Code review and optimization
 
 ---
 
@@ -555,6 +586,23 @@ python day16_multi_agent.py
 - Understood the difference between Function Calling and ReAct
 - Built a working tool-use demo with 5 tools
 - Learned how ToolMessage fits into the conversation flow
+
+---
+
+**Day 17 Thoughts**:
+> Today I built a Web Scraper Agent - an AI that can autonomously browse the web and collect information! The biggest insight: information gathering is the foundation of intelligent agents. Without input, agents can't make good decisions. I implemented a system where the Agent first plans a strategy (which sites to visit), then executes the crawling, extracts content with BeautifulSoup, and finally aggregates everything into a structured report. The batch scraper can process multiple URLs efficiently. Error handling is crucial - networks are unreliable, websites change, and access can be blocked. I also learned about respecting robots.txt and rate limiting - being a polite crawler is important.
+
+**Challenges Faced**:
+- Handling various website structures
+- Dealing with anti-scraping mechanisms
+- Extracting meaningful content from messy HTML
+- Managing rate limiting and polite crawling
+
+**Breakthroughs**:
+- Built an autonomous web scraper Agent
+- Implemented strategy planning for information gathering
+- Created batch processing for multiple URLs
+- Understood the importance of error handling in web scraping
 
 ---
 
@@ -715,6 +763,7 @@ python day16_multi_agent.py
 14. Intelligent Customer Service - RAG + Memory + Tools integration
 15. ReAct Agent - Reasoning + Acting pattern
 16. Multi-Agent Collaboration - Team of specialized agents
+17. Web Scraper Agent - Autonomous information gathering
 
 **Skills Mastered**:
 - Python syntax and data structures
