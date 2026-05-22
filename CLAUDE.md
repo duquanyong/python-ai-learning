@@ -8,7 +8,7 @@ This is a personal Python & AI learning journey repo (30-day curriculum). Each d
 
 - **Language**: Python 3.12
 - **Learning start date**: April 27, 2026
-- **Current progress**: Day 18 (Phase 3: AI Agents)
+- **Current progress**: Day 19 (Phase 3: AI Agents)
 
 ## Running Code
 
@@ -39,6 +39,7 @@ python day15_react_agent.py
 python day16_multi_agent.py
 python day17_web_scraper_agent.py
 python day18_code_agent.py
+python day19_database_agent.py
 ```
 
 ### Install Dependencies
