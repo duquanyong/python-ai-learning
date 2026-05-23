@@ -8,7 +8,7 @@ This is a personal Python & AI learning journey repo (30-day curriculum). Each d
 
 - **Language**: Python 3.12
 - **Learning start date**: April 27, 2026
-- **Current progress**: Day 21 (Phase 3: AI Agents - Complete)
+- **Current progress**: Day 22 (Phase 4: Enterprise Projects - In Progress)
 
 ## Running Code
 
@@ -21,6 +21,7 @@ source .venv/Scripts/activate
 ### Run a Daily Project
 Each day is a standalone script. Run directly with Python:
 ```bash
+# Phase 1-3: Single-file projects
 python day01_conversation_bot.py
 python day02_todo_manager.py
 python day03_weather_checker.py
@@ -42,6 +43,13 @@ python day18_code_agent.py
 python day19_database_agent.py
 python day20_api_automation.py
 python day21_personal_ai_assistant.py
+
+# Phase 4: Engineering projects (multi-file)
+cd day22_knowledge_base
+pip install -e ".[dev]"
+python -m knowledge_base.main          # Start backend
+streamlit run frontend/main.py        # Start frontend
+pytest                                   # Run tests
 ```
 
 ### Install Dependencies
@@ -59,11 +67,19 @@ pip install fastapi streamlit python-dotenv
 ## Project Structure & Conventions
 
 ### Naming Pattern
-Daily projects follow the naming convention `dayNN_<descriptive_name>.py` (e.g., `day01_conversation_bot.py`). Each file is self-contained with:
+
+**Phase 1-3**: Single-file projects follow `dayNN_<descriptive_name>.py` (e.g., `day01_conversation_bot.py`). Each file is self-contained with:
 - A module docstring describing the day's learning goal
 - A main class encapsulating the day's feature
 - A `main()` function for interactive CLI usage
 - `if __name__ == "__main__": main()` guard
+
+**Phase 4**: Engineering projects use multi-file directory structure (e.g., `day22_knowledge_base/`):
+- `pyproject.toml` for project configuration
+- `src/<package>/` for source code with layered architecture
+- `tests/` for unit and integration tests
+- `frontend/` for Streamlit UI (when applicable)
+- README.md with setup and run instructions
 
 ### Data Persistence
 - Day 2+ projects use JSON files for local data storage (e.g., `todos.json`). These are committed to git as sample data.
