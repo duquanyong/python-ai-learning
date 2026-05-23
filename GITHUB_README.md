@@ -2,9 +2,9 @@
 
 ## 📊 Progress Overview
 - **Start Date**: April 27, 2026
-- **Current Day**: Day 19
+- **Current Day**: Day 20
 - **Phase**: Phase 3 - AI Agents
-- **Status**: 🟢 Phase 3 Active - Database Agent
+- **Status**: 🟢 Phase 3 Active - API Automation
 
 ---
 
@@ -534,6 +534,38 @@ python day19_database_agent.py
 
 ---
 
+### ✅ Day 20: API Automation
+**Date**: 2026-05-18
+**Technologies**: Python, Workflow Orchestration, API Chaining
+**Files**: [`day20_api_automation.py`](./day20_api_automation.py)
+
+**What I Learned**:
+- Workflow orchestration patterns
+- Node-based task execution
+- Context passing between nodes
+- Conditional execution
+- Error handling and retry mechanisms
+- API chaining and data transformation
+
+**Features**:
+- Visual workflow definition with nodes
+- API call nodes (GET/POST)
+- Custom function nodes
+- Context-based data passing between nodes
+- Conditional execution (skip nodes based on conditions)
+- Retry mechanism with exponential backoff
+- Workflow execution history
+- Preset templates (weather alert, data pipeline)
+- Custom workflow builder
+- Demo mode without API key
+
+**Run It**:
+```bash
+python day20_api_automation.py
+```
+
+---
+
 ### 📅 Upcoming Days
 
 | Day | Project | Status |
@@ -542,7 +574,8 @@ python day19_database_agent.py
 | Day 17 | Web Scraper Agent | ✅ Complete |
 | Day 18 | Code Generation Agent | ✅ Complete |
 | Day 19 | Database Agent | ✅ Complete |
-| Day 20 | API Automation | 📋 Planned |
+| Day 20 | API Automation | ✅ Complete |
+| Day 21 | Personal AI Assistant | 📋 Planned |
 
 ---
 
@@ -572,7 +605,7 @@ python day19_database_agent.py
 - [x] Day 17: Web Scraper Agent
 - [x] Day 18: Code Generation Agent
 - [x] Day 19: Database Agent
-- API Automation
+- [x] Day 20: API Automation
 - Personal AI Assistant
 
 ### Phase 4: Real Projects (Day 22-30) ⚪ Upcoming
@@ -603,7 +636,7 @@ python day19_database_agent.py
 - ✅ Prompt Engineering
 - ✅ RAG Systems
 - ✅ LangChain Framework
-- 🔄 AI Agents (ReAct + Multi-Agent + Web Scraping + Code Generation + Database)
+- 🔄 AI Agents (ReAct + Multi-Agent + Web Scraping + Code Generation + Database + API Automation)
 
 ---
 
@@ -624,13 +657,14 @@ python day19_database_agent.py
 - Day 17: Web Scraper Agent - Autonomous information gathering
 - Day 18: Code Generation Agent - AI programming assistant
 - Day 19: Database Agent - Natural language to SQL
+- Day 20: API Automation - Workflow orchestration
 
-**Tomorrow's Goal**: Day 20 - API Automation
+**Tomorrow's Goal**: Day 21 - Personal AI Assistant
 
 **Skills to Practice**:
-- API workflow orchestration
-- Automated task execution
-- Integration patterns
+- Multi-modal AI assistant
+- Integration of all agent capabilities
+- Personal productivity automation
 
 ---
 
@@ -650,6 +684,23 @@ python day19_database_agent.py
 - Understood the difference between Function Calling and ReAct
 - Built a working tool-use demo with 5 tools
 - Learned how ToolMessage fits into the conversation flow
+
+---
+
+**Day 20 Thoughts**:
+> Today I built an API Automation workflow engine - the orchestration layer that connects multiple API calls into cohesive workflows! The biggest insight: individual API calls are like individual musicians, but a workflow engine is the conductor that makes them play together harmoniously. I implemented a node-based system where each node represents a task (API call or custom function), and nodes can pass data to each other through a shared context. The conditional execution feature is powerful - nodes can be skipped based on previous results. The retry mechanism with exponential backoff handles transient failures gracefully. I also built preset templates for common patterns like weather alerts and data pipelines. This is the glue that ties all the previous agent capabilities together.
+
+**Challenges Faced**:
+- Designing the context passing mechanism between nodes
+- Implementing parameter resolution with variable substitution
+- Handling errors while deciding whether to continue or stop
+- Managing node execution state and history
+
+**Breakthroughs**:
+- Built a complete workflow engine with node-based execution
+- Implemented context-based data passing between nodes
+- Added conditional execution and retry mechanisms
+- Created preset workflow templates
 
 ---
 
@@ -864,6 +915,7 @@ python day19_database_agent.py
 17. Web Scraper Agent - Autonomous information gathering
 18. Code Generation Agent - AI programming assistant
 19. Database Agent - Natural language to SQL
+20. API Automation - Workflow orchestration
 
 **Skills Mastered**:
 - Python syntax and data structures
