@@ -13,7 +13,7 @@ import shutil
 from pathlib import Path
 from typing import List
 
-from fastapi import APIRouter, UploadFile, File, HTTPException, BackgroundTasks
+from fastapi import APIRouter, UploadFile, File, HTTPException, BackgroundTasks, Depends
 from sqlalchemy.orm import Session
 
 from knowledge_base.db.database import get_db

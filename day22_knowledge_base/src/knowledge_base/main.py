@@ -25,12 +25,12 @@ async def lifespan(app: FastAPI):
     关闭时：清理资源
     """
     # 启动
-    print(f"🚀 启动 {settings.app_name}...")
+    print(f"[START] 启动 {settings.app_name}...")
     init_db()
-    print("✅ 数据库初始化完成")
+    print("[OK] 数据库初始化完成")
     yield
     # 关闭
-    print("👋 应用关闭")
+    print("[STOP] 应用关闭")
 
 
 # 创建 FastAPI 应用
