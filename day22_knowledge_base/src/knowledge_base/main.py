@@ -1,17 +1,19 @@
 """
-Day 22: 智能知识库系统 - FastAPI 入口
+Day 22-23: 智能知识库系统 - FastAPI 入口
 
-企业级项目实战 - Phase 4 第一个项目
+企业级项目实战 - Phase 4
+Day 22: 基础架构
+Day 23: 高级特性（中间件、后台任务、文件上传）
 """
 
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 
 from knowledge_base.core.config import settings
+from knowledge_base.core.middleware import setup_middleware
 from knowledge_base.db.database import init_db
-from knowledge_base.api.v1.routes import documents, search
+from knowledge_base.api.v1.routes import documents, search, upload
 
 
 @asynccontextmanager
@@ -41,18 +43,13 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# CORS 配置
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # 生产环境应限制具体域名
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# 配置中间件（替代原来的 CORS 配置）
+setup_middleware(app)
 
 # 注册路由
 app.include_router(documents.router, prefix="/api/v1")
 app.include_router(search.router, prefix="/api/v1")
+app.include_router(upload.router, prefix="/api/v1")
 
 
 @app.get("/")
