@@ -8,7 +8,7 @@ This is a personal Python & AI learning journey repo (30-day curriculum). Each d
 
 - **Language**: Python 3.12
 - **Learning start date**: April 27, 2026
-- **Current progress**: Day 26 (Phase 4: Enterprise Projects - In Progress)
+- **Current progress**: Day 27 (Phase 4: Enterprise Projects - In Progress)
 
 ## Running Code
 
@@ -50,6 +50,13 @@ pip install -e ".[dev]"
 python -m knowledge_base.main          # Start backend
 streamlit run frontend/main.py        # Start frontend
 pytest                                   # Run tests
+
+# Day 25-27: AI内容创作平台
+cd day25_ai_content_platform
+pip install -e ".[dev]"
+python -m content_platform.main        # Start backend
+streamlit run frontend/main.py        # Start frontend
+docker-compose up -d                  # Docker deployment
 ```
 
 ### Install Dependencies
