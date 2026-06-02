@@ -1,0 +1,64 @@
+# Day 27: Docker Compose - AI内容创作平台
+# 一键启动完整系统
+
+version: '3.8'
+
+services:
+  # 后端服务
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    container_name: ai-content-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=production
+      - DATABASE_URL=sqlite:///./data/content_platform.db
+    volumes:
+      - ./data:/app/data
+    env_file:
+      - .env
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # 前端服务
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runtime
+    container_name: ai-content-frontend
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://backend:8000/api/v1
+    depends_on:
+      - backend
+    command: ["streamlit", "run", "frontend/main.py", "--server.port=8501", "--server.address=0.0.0.0"]
+    restart: unless-stopped
+
+  # 可选: Nginx反向代理
+  nginx:
+    image: nginx:alpine
+    container_name: ai-content-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - backend
+      - frontend
+    restart: unless-stopped
+    profiles:
+      - production
+
+# 数据卷
+volumes:
+  data:
+    driver: local

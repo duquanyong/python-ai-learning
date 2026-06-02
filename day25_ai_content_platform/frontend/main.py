@@ -1,15 +1,16 @@
 """
-Day 25: AI内容创作平台 - Streamlit前端
+Day 25-27: AI内容创作平台 - Streamlit前端主入口
 
-多Agent协作内容生成系统界面
+多Agent协作内容生成系统
+Day 25: 基础架构和多Agent系统
+Day 26: 后端API与工作流
+Day 27: 前端界面与部署
+
+Streamlit 多页面应用：
+- 1_Content_Creation.py - 内容创作
+- 2_Task_Management.py - 任务管理
+- 3_System_Status.py - 系统状态
 """
-
-import sys
-from pathlib import Path
-
-# 添加src到路径
-src_path = Path(__file__).parent.parent / "src"
-sys.path.insert(0, str(src_path))
 
 import streamlit as st
 
@@ -55,14 +56,22 @@ st.markdown("""
 
 ### 🚀 快速开始
 
-1. 点击左侧导航栏的"内容创作"
+1. 点击左侧导航栏的"📝 内容创作"
 2. 输入您的内容需求
 3. 选择内容类型和风格
 4. 点击生成，等待Agent团队协作完成
 
 ---
 
-**Day 25 多Agent系统** | Phase 4 创业项目
+### 📋 功能导航
+
+- 📝 **内容创作** - 生成新内容
+- 📋 **任务管理** - 查看任务进度和历史
+- ⚙️ **系统状态** - Agent状态监控
+
+---
+
+**Day 27 前端界面与部署** | Phase 4 创业项目
 """)
 
 # 侧边栏
@@ -72,9 +81,9 @@ st.sidebar.info("""
 请从上方导航栏选择功能：
 
 - 📝 **内容创作** - 生成新内容
-- 📚 **内容库** - 查看历史内容
+- 📋 **任务管理** - 查看任务进度
 - ⚙️ **系统状态** - Agent状态监控
 """)
 
 st.sidebar.markdown("---")
-st.sidebar.caption("Day 25 | Phase 4 创业项目")
+st.sidebar.caption("Day 27 | Phase 4 创业项目")
