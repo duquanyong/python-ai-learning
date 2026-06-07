@@ -5,30 +5,6 @@ API 集成测试
 """
 
 import pytest
-from fastapi.testclient import TestClient
-
-from knowledge_base.main import app
-from knowledge_base.db.database import get_db
-from tests.conftest import TestingSessionLocal
-
-
-@pytest.fixture
-def client():
-    """创建测试客户端"""
-    # 覆盖数据库依赖
-    def override_get_db():
-        db = TestingSessionLocal()
-        try:
-            yield db
-        finally:
-            db.close()
-
-    app.dependency_overrides[get_db] = override_get_db
-
-    with TestClient(app) as test_client:
-        yield test_client
-
-    app.dependency_overrides.clear()
 
 
 class TestHealthEndpoint:
